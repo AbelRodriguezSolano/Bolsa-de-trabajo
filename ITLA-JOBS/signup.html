@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="/css/styles.css" />
     <link
       rel="shortcut icon"
-      href="/assets/images/itla jobs logo.png"
+      href="/assets/images/ITLA-jobs-logo.png"
       type="image/x-icon"
     />
     <title>ITLA JOBS</title>
@@ -28,7 +28,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/">
           <img
-            src="/assets/images/itla jobs logo.png"
+            src="/assets/images/ITLA-jobs-logo.png"
             alt="itla jobs logo"
             class="menu__img"
           />
@@ -69,28 +69,45 @@
           </ul>
         </div>
       </nav>
+
       <div class="container mt-5">
           <div class="row justify-content-center">
+
               <div class="col-12 col-md-6">
-                <form class="form-signin">
+                <form class="form-signin" id="form-signup">
+
                     <div class="text-center mb-4">
-                      <img class="mb-4" src="/assets/images/itla jobs logo.png" alt="" width="100">
+                      <img class="mb-4" src="/assets/images/ITLA-jobs-logo.png" alt="" width="100">
                       <h1 class="h3 mb-3 font-weight-normal">CREAR UNA CUENTA</h1>
                     </div>
 
                     <div class="form-label-group mb-3">
-                        <input type="text" id="inputname" class="form-control" placeholder="Nombres" required autofocus>
+                        <input type="text" id="inputname" class="form-control" placeholder="Nombres" name="name" required autofocus>
+                        <div class="invalid-feedback text-right">
+                          Solo puede contener letras y espacios. 
+                        </div>
+                      </div>
+
+                      <div class="form-label-group mb-3">
+                        <input type="text" id="inputsurname" class="form-control" placeholder="Apellidos" name="surname" required>
+                        <div class="invalid-feedback text-right">
+                          Solo puede contener letras y espacios. 
+                        </div>
                       </div>
                       <div class="form-label-group mb-3">
-                        <input type="text" id="inputsurname" class="form-control" placeholder="Apellidos" required>
-                      </div>
-                      <div class="form-label-group mb-3">
-                        <input type="email" id="inputEmail" class="form-control" placeholder="Correo Electrónico" required>
+                        <input type="email" id="inputEmail" class="form-control" placeholder="Correo Electrónico" name="email" required>
+                        <div class="invalid-feedback text-right">
+                          Revise el formato de su correo electrónico. 
+                        </div>
                       </div>
                     <div class="form-label-group mb-3">
-                      <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+                      <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" name="password" required>
+                      <div class="invalid-feedback text-right">
+                        La contraseña de tener entre 4 y 12 dígitos. 
+                      </div>
                     </div>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Registrarte</button>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" id="btnsignup">Registrarte</button>
+                    
                     <a href="/login.html" class="btn btn-lg btn-primary btn-block">
                         Iniciar Sesión 
                       </a>
@@ -98,6 +115,7 @@
               </div>
           </div>
       </div>
+
     <footer class="footer mt-auto py-3">
       <div class="container">
         <span class="text-muted"
@@ -121,6 +139,7 @@
       integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
       crossorigin="anonymous"
     ></script>
-    <script src="/js/scripts.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/scripts.js" type="module"></script>
   </body>
 </html>

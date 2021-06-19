@@ -1,22 +1,18 @@
-const scrollToTop = document.getElementById("scroll-to-top");
-let canScroll = false;
+import GoToTop from "/js/go-top.js";
+import PostJob from "/js/post-job.js";
+import SignUp from "/js/signup.js";
 
-const goToTop = () => {
-  window.scroll(0, 0);
-};
-
-scrollToTop.addEventListener("click", goToTop);
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY >= 160) {
-    canScroll = true;
-    scrollToTop.classList.add("scroll-to-top--show");
-  } else {
-    scrollToTop.classList.remove("scroll-to-top--show");
-    canScroll = false;
+document.addEventListener("DOMContentLoaded", () => {
+  const goTop = new GoToTop();
+  console.log(location.href);
+  if (location.href === "http://127.0.0.1:5501/post-job.html") {
+    const postJob = new PostJob();
+  }
+  if (location.href === "http://127.0.0.1:5501/signup.html") {
+    const singup = new SignUp();
   }
 });
 
-fetch("https://localhost:44333/api/Person")
-  .then((res) => res.json())
-  .then((res) => console.log(res));
+// fetch("https://localhost:44333/api/Person")
+//   .then((res) => res.json())
+//   .then((res) => console.log(res));

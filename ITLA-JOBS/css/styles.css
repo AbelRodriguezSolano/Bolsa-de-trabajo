@@ -32,3 +32,6 @@ html {
 ::placeholder {
   text-transform: uppercase;
 }
+.table caption {
+  caption-side: top;
+}

@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="/css/styles.css" />
     <link
       rel="shortcut icon"
-      href="/assets/images/ITLA-jobs-logo.png"
+      href="/assets/images/itla jobs logo.png"
       type="image/x-icon"
     />
     <title>ITLA JOBS</title>
@@ -29,7 +29,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="/">
         <img
-          src="/assets/images/ITLA-jobs-logo.png"
+          src="/assets/images/itla jobs logo.png"
           alt="itla jobs logo"
           class="menu__img"
         />
@@ -47,13 +47,13 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item">
+          <li class="nav-item active">
             <a class="nav-link" href="/"
               >Home <span class="sr-only">(current)</span></a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="/login.html">Iniciar Sesión</a>
+            <a class="nav-link" href="/login.html">Iniciar Sesión</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/signup.html">Registrarte</a>
@@ -70,49 +70,91 @@
         </ul>
       </div>
     </nav>
+
     <div class="container mt-5">
-      <div class="row justify-content-center">
-        <div class="col-12 col-sm-6 text-center">
-          <form class="form-signin">
-            <img
-              class="mb-4"
-              src="/assets/images/ITLA-jobs-logo.png"
-              alt=""
-              width="100"
-            />
-            <h1 class="h3 mb-3 font-weight-normal">INICIAR SESIÓN</h1>
-            <label for="inputEmail" class="sr-only">Email address</label>
-            <input
-              type="email"
-              id="inputEmail"
-              class="form-control"
-              placeholder="Correo Electrónico"
-              required
-              autofocus
-            />
-            <label for="inputPassword" class="sr-only">Password</label>
-            <input
-              type="password"
-              id="inputPassword"
-              class="form-control"
-              placeholder="Contraseña"
-              required
-            />
-            <div class="checkbox mb-3">
-              <label>
-                <input type="checkbox" value="remember-me" /> Recordar
-              </label>
+      <div class="row">
+        <div class="col" id="main-col">
+          <!-- Buscar -->
+          <div class="row mb-5">
+            <div class="col-7 d-flex">
+              <input
+                type="text"
+                placeholder="Buscar"
+                class="form-control mr-3"
+              />
+              <input type="button" class="btn btn-primary" value="Buscar" />
             </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">
-              Iniciar Sesión
-            </button>
-            <a href="/signup.html" class="btn btn-lg btn-primary btn-block">
-              Registrarte
-            </a>
-          </form>
+            <div class="col d-flex justify-content-end">
+              <a href="/post-job.html" class="btn btn-success">PUBLICAR</a>
+            </div>
+          </div>
+          <!-- Categorias -->
+
+          <table class="table table-bordered table-hover">
+            <caption class="bg-dark text-white text-center text-uppercase">
+              Programador
+            </caption>
+            <thead>
+              <tr>
+                <th>Ubicación</th>
+                <th>Posición</th>
+                <th>Empresa</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-toggle="modal" data-target="#exampleModal">
+                <td>San Pedro</td>
+                <td>Back-End Developer</td>
+                <td>Altice</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
+
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Progrmador</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h6>Back-end Developer</h6>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Error,
+              fugit adipisci. Recusandae deleniti delectus mollitia,
+              voluptatibus architecto error optio temporibus eos tenetur earum
+              commodi fugiat. Nostrum facere suscipit quas culpa?
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <footer class="footer mt-auto py-3">
       <div class="container">
         <span class="text-muted"
@@ -136,6 +178,6 @@
       integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
       crossorigin="anonymous"
     ></script>
-    <script src="/js/scripts.js"></script>
+    <script src="/js/jobs.js"></script>
   </body>
 </html>

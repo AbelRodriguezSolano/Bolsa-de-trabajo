@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="/css/styles.css" />
     <link
       rel="shortcut icon"
-      href="/assets/images/itla jobs logo.png"
+      href="/assets/images/ITLA-jobs-logo.png"
       type="image/x-icon"
     />
     <title>ITLA JOBS</title>
@@ -29,7 +29,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="/">
         <img
-          src="/assets/images/itla jobs logo.png"
+          src="/assets/images/ITLA-jobs-logo.png"
           alt="itla jobs logo"
           class="menu__img"
         />
@@ -73,11 +73,11 @@
     <div class="container mt-5">
       <div class="row justify-content-center">
         <div class="col-12 col-md-8">
-          <form class="form-signin">
+          <form class="form-signin" id="formpost">
             <div class="text-center mb-4">
               <img
                 class="mb-4"
-                src="/assets/images/itla jobs logo.png"
+                src="/assets/images/ITLA-jobs-logo.png"
                 alt=""
                 width="100"
               />
@@ -90,9 +90,12 @@
                 id="inputcompany"
                 class="form-control"
                 placeholder="Nombre de la compañía"
+                name="company"
                 required
-                autofocus
               />
+              <div class="invalid-feedback text-right">
+                Solo puede contener letras.
+              </div>
             </div>
             <div class="form-label-group mb-3">
               <input
@@ -100,8 +103,12 @@
                 id="inputposition"
                 class="form-control"
                 placeholder="Posición para ofrecer"
+                name="position"
                 required
               />
+              <div class="invalid-feedback text-right">
+                Solo puede contener letras.
+              </div>
             </div>
             <div class="form-label-group mb-3">
               <input
@@ -109,43 +116,40 @@
                 id="inputlocation"
                 class="form-control"
                 placeholder="Ubicación de la compañía"
+                name="location"
                 required
               />
+              <div class="invalid-feedback text-right">Máximo 100 dígitos.</div>
             </div>
             <div class="form-label-group mb-3">
               <input
                 type="date"
-                id="inputlocation"
+                id="inputdate"
                 class="form-control"
+                name="date"
                 required
               />
+              <div class="invalid-feedback text-right">
+                La fecha debe estar en el formato MM/dd/yyyy.
+              </div>
             </div>
             <div class="form-label-group mb-3">
               <input
                 type="email"
-                id="inputlocation"
+                name="email"
+                id="inputemail"
                 class="form-control"
                 placeholder="Correo para aplicar"
                 required
               />
             </div>
-            <div class="dropdown">
-              <button
-                class="btn btn-secondary btn-block dropdown-toggle mb-3"
-                type="button"
-                id="dropdownMenuButton"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Categoria
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Diseño</a>
-                <a class="dropdown-item" href="#">Programcion</a>
-                <a class="dropdown-item" href="#">Marketing</a>
-              </div>
-            </div>
+
+            <select name="category" id="category" class="custom-select mb-3">
+              <option value="diseño">Diseño</option>
+              <option value="programcion">Programcion</option>
+              <option value="marketing">Marketing</option>
+            </select>
+
             <div class="form-label-group mb-3">
               <textarea
                 name="description"
@@ -156,6 +160,7 @@
                 class="form-control textarea"
               ></textarea>
             </div>
+
             <div class="d-flex justify-content-center mb-3">
               <div class="form-check form-check-inline">
                 <input
@@ -164,6 +169,7 @@
                   name="jobtime"
                   id="fulltime"
                   value="fulltime"
+                  checked
                 />
                 <label class="form-check-label" for="fulltime">FULL TIME</label>
               </div>
@@ -190,9 +196,13 @@
                 >
               </div>
             </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">
-              Publicar
-            </button>
+
+            <input
+              type="submit"
+              class="btn btn-block btn-primary"
+              id="btnpost"
+              value="Enviar"
+            />
           </form>
         </div>
       </div>
@@ -204,6 +214,7 @@
         >
       </div>
     </footer>
+
     <div id="scroll-to-top" class="scroll-to-top">
       <i class="fas fa-arrow-up top-icon"></i>
     </div>
@@ -220,6 +231,7 @@
       integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
       crossorigin="anonymous"
     ></script>
-    <script src="/js/scripts.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/scripts.js" type="module"></script>
   </body>
 </html>
