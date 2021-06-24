@@ -1,0 +1,60 @@
+﻿@using ITLA_Jobs.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-12 col-md-6 text-center">
+        <section id="loginForm">
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <img class="mb-4" src="/assets/images/ITLA-jobs-logo.png" alt="" width="100" />
+                <h2>
+                    INICIAR SESIÓN
+                </h2>
+                <hr />
+                <div class="form-group">
+                    <div class="col">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Correo Electrónico" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Contraseña" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <div class="checkbox">
+                            <label>
+                            @Html.CheckBoxFor(m => m.RememberMe)
+                                Recordar
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <div class="col mb-3">
+                        <input type="submit" value="Iniciar Sesión" class="btn btn-lg btn-primary btn-block" />
+                    </div>
+                    <div class="col">
+                        <a href="/Account/Register" class="btn btn-lg btn-primary btn-block">Registrarte</a>
+                    </div>
+                </div>
+                @* Enable this once you have account confirmation enabled for password reset functionality
+            <p>
+                @Html.ActionLink("Forgot your password?", "ForgotPassword")
+            </p>*@
+            }
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
