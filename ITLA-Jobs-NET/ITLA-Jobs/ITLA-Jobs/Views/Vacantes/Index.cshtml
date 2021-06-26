@@ -5,26 +5,19 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<div class="row mt-5 mb-5">
+    <div class="col">
+        <a href="/Vacantes/Create" class="btn btn-success">Publicar Vacante</a>
+    </div>
+</div>
 <table class="table table-bordered table-hover">
+    <caption class="bg-dark text-white text-center text-uppercase">
+        Vacantes
+    </caption>
     <thead>
-
         <tr>
-            <th class="d-none">
-                @Html.DisplayNameFor(model => model.Tipo)
-            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Company)
-            </th>
-            <th class="d-none">
-                @Html.DisplayNameFor(model => model.Direccion_url)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Logo)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Posicion)
@@ -32,40 +25,15 @@
             <th>
                 @Html.DisplayNameFor(model => model.Ubicacion)
             </th>
-            <th class="d-none">
-                @Html.DisplayNameFor(model => model.Descripcion)
-            </th>
-            <th class="d-none">
-                @Html.DisplayNameFor(model => model.FechaRegistro)
-            </th>
-            <th class="d-none">
-                @Html.DisplayNameFor(model => model.CorreoAplicar)
-            </th>
-            <th class="d-none">
-                @Html.DisplayNameFor(model => model.Categoria)
-            </th>
-            <th class="d-none">
-                @Html.DisplayNameFor(model => model.EmailUsuario)
-            </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
 
         @foreach (var item in Model)
         {
-            <tr>
-                <td class="d-none">
-                    @Html.DisplayFor(modelItem => item.Tipo)
-                </td>
+            <tr id="@item.Id">
                 <td>
                     @Html.DisplayFor(modelItem => item.Company)
-                </td>
-                <td class="d-none">
-                    @Html.DisplayFor(modelItem => item.Direccion_url)
-                </td>
-                <td>
-                    <img src="~/Logos/@Html.DisplayFor(modelItem => item.Logo)" alt="Logo" width="100"/>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Posicion)
@@ -73,63 +41,11 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Ubicacion)
                 </td>
-                <td class="d-none">
-                    @Html.DisplayFor(modelItem => item.Descripcion)
-                </td>
-                <td class="d-none">
-                    @Html.DisplayFor(modelItem => item.FechaRegistro)
-                </td>
-                <td class="d-none">
-                    @Html.DisplayFor(modelItem => item.CorreoAplicar)
-                </td>
-                <td class="d-none">
-                    @Html.DisplayFor(modelItem => item.Categoria)
-                </td>
-                <td class="d-none">
-                    @Html.DisplayFor(modelItem => item.EmailUsuario)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-success" }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
-                </td>
             </tr>
         }
     </tbody>
 
 </table>
-
-<div class="modal fade"
-     id="exampleModal"
-     tabindex="-1"
-     aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modal-title">Progrmador</h5>
-                <button type="button"
-                        class="close"
-                        data-dismiss="modal"
-                        aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <h6 id="body-title"></h6>
-                <p id="body-title"></p>
-            </div>
-            <div class="modal-footer">
-                <button type="button"
-                        class="btn btn-secondary"
-                        data-dismiss="modal">
-                    Close
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-
 
 @section scripts{
 
@@ -137,15 +53,196 @@
 
         $(".table tbody").on("click", "tr", function () {
 
-            const modalTitle = document.getElementById("modal-title");
+            console.log(this.id);
 
-            modalTitle.textContent = this.children[0].textContent;
-
-            $("#exampleModal").modal("show");
+            setTimeout(() => {
+                location.href = "https://localhost:44325/Vacantes/Details/" + this.id;
+            }, 100)
         });
 
         $(document).ready(function () {
-            $(".table").DataTable();
+            $(".table").DataTable({
+                language: {
+                    processing: "Procesando...",
+                    lengthMenu: "Mostrar _MENU_ registros",
+                    zeroRecords: "No se encontraron resultados",
+                    emptyTable: "Ningún dato disponible en esta tabla",
+                    infoEmpty: "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    infoFiltered: "(filtrado de un total de _MAX_ registros)",
+                    search: "Buscar:",
+                    infoThousands: ",",
+                    loadingRecords: "Cargando...",
+                    paginate: {
+                        first: "Primero",
+                        last: "Último",
+                        next: "Siguiente",
+                        previous: "Anterior",
+                    },
+                    aria: {
+                        sortAscending: ": Activar para ordenar la columna de manera ascendente",
+                        sortDescending:
+                            ": Activar para ordenar la columna de manera descendente",
+                    },
+                    buttons: {
+                        copy: "Copiar",
+                        colvis: "Visibilidad",
+                        collection: "Colección",
+                        colvisRestore: "Restaurar visibilidad",
+                        copyKeys:
+                            "Presione ctrl o u2318 + C para copiar los datos de la tabla al portapapeles del sistema. <br /> <br /> Para cancelar, haga clic en este mensaje o presione escape.",
+                        copySuccess: {
+                            1: "Copiada 1 fila al portapapeles",
+                            _: "Copiadas %d fila al portapapeles",
+                        },
+                        copyTitle: "Copiar al portapapeles",
+                        csv: "CSV",
+                        excel: "Excel",
+                        pageLength: {
+                            "-1": "Mostrar todas las filas",
+                            1: "Mostrar 1 fila",
+                            _: "Mostrar %d filas",
+                        },
+                        pdf: "PDF",
+                        print: "Imprimir",
+                    },
+                    autoFill: {
+                        cancel: "Cancelar",
+                        fill: "Rellene todas las celdas con <i>%d</i>",
+                        fillHorizontal: "Rellenar celdas horizontalmente",
+                        fillVertical: "Rellenar celdas verticalmentemente",
+                    },
+                    decimal: ",",
+                    searchBuilder: {
+                        add: "Añadir condición",
+                        button: {
+                            0: "Constructor de búsqueda",
+                            _: "Constructor de búsqueda (%d)",
+                        },
+                        clearAll: "Borrar todo",
+                        condition: "Condición",
+                        conditions: {
+                            date: {
+                                after: "Despues",
+                                before: "Antes",
+                                between: "Entre",
+                                empty: "Vacío",
+                                equals: "Igual a",
+                                notBetween: "No entre",
+                                notEmpty: "No Vacio",
+                                not: "Diferente de",
+                            },
+                            number: {
+                                between: "Entre",
+                                empty: "Vacio",
+                                equals: "Igual a",
+                                gt: "Mayor a",
+                                gte: "Mayor o igual a",
+                                lt: "Menor que",
+                                lte: "Menor o igual que",
+                                notBetween: "No entre",
+                                notEmpty: "No vacío",
+                                not: "Diferente de",
+                            },
+                            string: {
+                                contains: "Contiene",
+                                empty: "Vacío",
+                                endsWith: "Termina en",
+                                equals: "Igual a",
+                                notEmpty: "No Vacio",
+                                startsWith: "Empieza con",
+                                not: "Diferente de",
+                            },
+                            array: {
+                                not: "Diferente de",
+                                equals: "Igual",
+                                empty: "Vacío",
+                                contains: "Contiene",
+                                notEmpty: "No Vacío",
+                                without: "Sin",
+                            },
+                        },
+                        data: "Data",
+                        deleteTitle: "Eliminar regla de filtrado",
+                        leftTitle: "Criterios anulados",
+                        logicAnd: "Y",
+                        logicOr: "O",
+                        rightTitle: "Criterios de sangría",
+                        title: {
+                            0: "Constructor de búsqueda",
+                            _: "Constructor de búsqueda (%d)",
+                        },
+                        value: "Valor",
+                    },
+                    searchPanes: {
+                        clearMessage: "Borrar todo",
+                        collapse: {
+                            0: "Paneles de búsqueda",
+                            _: "Paneles de búsqueda (%d)",
+                        },
+                        count: "{total}",
+                        countFiltered: "{shown} ({total})",
+                        emptyPanes: "Sin paneles de búsqueda",
+                        loadMessage: "Cargando paneles de búsqueda",
+                        title: "Filtros Activos - %d",
+                    },
+                    select: {
+                        1: "%d fila seleccionada",
+                        _: "%d filas seleccionadas",
+                        cells: {
+                            1: "1 celda seleccionada",
+                            _: "$d celdas seleccionadas",
+                        },
+                        columns: {
+                            1: "1 columna seleccionada",
+                            _: "%d columnas seleccionadas",
+                        },
+                    },
+                    thousands: ".",
+                    datetime: {
+                        previous: "Anterior",
+                        next: "Proximo",
+                        hours: "Horas",
+                        minutes: "Minutos",
+                        seconds: "Segundos",
+                        unknown: "-",
+                        amPm: ["am", "pm"],
+                    },
+                    editor: {
+                        close: "Cerrar",
+                        create: {
+                            button: "Nuevo",
+                            title: "Crear Nuevo Registro",
+                            submit: "Crear",
+                        },
+                        edit: {
+                            button: "Editar",
+                            title: "Editar Registro",
+                            submit: "Actualizar",
+                        },
+                        remove: {
+                            button: "Eliminar",
+                            title: "Eliminar Registro",
+                            submit: "Eliminar",
+                            confirm: {
+                                _: "¿Está seguro que desea eliminar %d filas?",
+                                1: "¿Está seguro que desea eliminar 1 fila?",
+                            },
+                        },
+                        error: {
+                            system:
+                                'Ha ocurrido un error en el sistema (<a target="\\" rel="\\ nofollow" href="\\">Más información&lt;\\/a&gt;).</a>',
+                        },
+                        multi: {
+                            title: "Múltiples Valores",
+                            info: "Los elementos seleccionados contienen diferentes valores para este registro. Para editar y establecer todos los elementos de este registro con el mismo valor, hacer click o tap aquí, de lo contrario conservarán sus valores individuales.",
+                            restore: "Deshacer Cambios",
+                            noMulti:
+                                "Este registro puede ser editado individualmente, pero no como parte de un grupo.",
+                        },
+                    },
+                    info: "Mostrando de _START_ a _END_ de _TOTAL_ entradas",
+                },
+            });
         });
     </script>
 
