@@ -6,8 +6,8 @@
 @{
     ViewBag.Title = "Create";
 
-    VacantesController controller = new VacantesController();
-    var categorias = controller.listadoCategorias();
+    BolsaTrabajoEntities db = new BolsaTrabajoEntities();
+    var categorias = db.Categoria.ToList();
 
     SelectList lista = new SelectList(categorias, "Id", "Nombre");
     ViewBag.categoria = lista;
@@ -55,7 +55,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Logo, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input type="file" name="Imagen" />
+                <input type="file" name="LogoFile" />
                 @Html.ValidationMessageFor(model => model.Logo, "", new { @class = "text-danger" })
             </div>
         </div>

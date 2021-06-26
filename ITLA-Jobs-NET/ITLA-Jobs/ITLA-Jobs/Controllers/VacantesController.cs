@@ -10,17 +10,13 @@ using System.Web.Mvc;
 using System.Web.Helpers;
 using Microsoft.AspNet.Identity;
 using ITLA_Jobs.Models;
+using System.IO;
 
 namespace ITLA_Jobs.Controllers
 {
     public class VacantesController : Controller
     {
         private BolsaTrabajoEntities db = new BolsaTrabajoEntities();
-
-        public List<Categoria> listadoCategorias()
-        {
-            return db.Categoria.ToList();
-        }
 
         // GET: Vacantes
         public ActionResult Index()
@@ -55,27 +51,26 @@ namespace ITLA_Jobs.Controllers
         [Authorize]
         public ActionResult Create(Vacante vacante)
         {
-            try
-            {
-                HttpPostedFileBase http = Request.Files[0];
-                WebImage imagen = new WebImage(http.InputStream);
+            string nombreLogo = Path.GetFileNameWithoutExtension(vacante.LogoFile.FileName);
+            string extension = Path.GetExtension(vacante.LogoFile.FileName);
+            nombreLogo = nombreLogo + DateTime.Now.ToString("yymmssfff") + extension;
+            vacante.Logo = nombreLogo;
+            nombreLogo = Path.Combine(Server.MapPath("~/Logos/"), nombreLogo);
+            vacante.LogoFile.SaveAs(nombreLogo);
 
-                vacante.Logo = imagen.GetBytes();
-            } 
-            catch (Exception)
+            if (ModelState.IsValid)
             {
+                vacante.EmailUsuario = User.Identity.GetUserName();
+                db.Vacante.Add(vacante);
+                db.SaveChanges();
+            }
 
-            }
-            finally
-            {
-                if (ModelState.IsValid)
-                {
-                    vacante.EmailUsuario = User.Identity.GetUserName();
-                    db.Vacante.Add(vacante);
-                    db.SaveChanges();
-                }
-            }
-                    return RedirectToAction("Index", vacante);  
+            return RedirectToAction("Index", vacante);  
+
+            //HttpPostedFileBase http = Request.Files[0];
+            //WebImage imagen = new WebImage(http.InputStream);
+
+            //vacante.Logo = imagen.GetBytes();
         }
 
         // GET: Vacantes/Edit/5

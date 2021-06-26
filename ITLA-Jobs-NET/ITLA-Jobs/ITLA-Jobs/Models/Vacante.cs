@@ -11,6 +11,7 @@ namespace ITLA_Jobs.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.Web;
     
     public partial class Vacante
     {
@@ -18,7 +19,8 @@ namespace ITLA_Jobs.Models
         public string Tipo { get; set; }
         public string Company { get; set; }
         public string Direccion_url { get; set; }
-        public byte[] Logo { get; set; }
+        public string Logo { get; set; }
+        public HttpPostedFileBase LogoFile { get; set; }
         public string Posicion { get; set; }
         public string Ubicacion { get; set; }
         public string Descripcion { get; set; }

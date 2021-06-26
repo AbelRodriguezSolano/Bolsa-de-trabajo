@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="54379b5838cd467e8c4f619491e278d2" Name="Diagram1">
+      <Diagram DiagramId="683435b9d33348ecb9af9011ba0c0074" Name="Diagram1">
         <EntityTypeShape EntityType="BolsaTrabajoModel.Categoria" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="BolsaTrabajoModel.Vacante" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="BolsaTrabajoModel.FK__Vacante__Categor__29572725" ManuallyRouted="false" />

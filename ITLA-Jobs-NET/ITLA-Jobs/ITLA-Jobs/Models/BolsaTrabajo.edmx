@@ -20,7 +20,7 @@
           <Property Name="Tipo" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="Company" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Direccion_url" Type="varchar(max)" />
-          <Property Name="Logo" Type="varbinary(max)" />
+          <Property Name="Logo" Type="varchar(max)" />
           <Property Name="Posicion" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Ubicacion" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Descripcion" Type="varchar(max)" Nullable="false" />
@@ -72,7 +72,7 @@
           <Property Name="Tipo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Company" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Direccion_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Logo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Logo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Posicion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Ubicacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />

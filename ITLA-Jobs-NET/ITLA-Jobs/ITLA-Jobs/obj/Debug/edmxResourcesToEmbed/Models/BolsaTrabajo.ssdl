@@ -15,7 +15,7 @@
     <Property Name="Tipo" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="Company" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Direccion_url" Type="varchar(max)" />
-    <Property Name="Logo" Type="varbinary(max)" />
+    <Property Name="Logo" Type="varchar(max)" />
     <Property Name="Posicion" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Ubicacion" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Descripcion" Type="varchar(max)" Nullable="false" />
