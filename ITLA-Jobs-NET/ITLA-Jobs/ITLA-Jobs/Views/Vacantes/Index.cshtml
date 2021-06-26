@@ -3,11 +3,6 @@
 
 @{
     ViewBag.Title = "Index";
-
-    BolsaTrabajoEntities db = new BolsaTrabajoEntities();
-    //var paths = from p in logos where p.Logo select p;
-    //SelectList lista = new SelectList(logos, "Logo", "Nombre");
-    //ViewBag.categoria = lista;
 }
 
 <h2>Index</h2>
@@ -70,10 +65,7 @@
                     @Html.DisplayFor(modelItem => item.Direccion_url)
                 </td>
                 <td>
-                    @{ 
-                        var logos = from datos in db.Vacante.ToList() where datos.Logo == item.Logo select datos;
-                    }
-                    <img src="~/Logos/@Html.DisplayFor(modelItem => item.Logo)" alt="" />
+                    <img src="~/Logos/@Html.DisplayFor(modelItem => item.Logo)" alt="Logo" width="100"/>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Posicion)
@@ -98,7 +90,6 @@
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-success" }) |
-
                     @Html.ActionLink("Details", "Details", new { id = item.Id }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
                 </td>
@@ -143,7 +134,6 @@
 @section scripts{
 
     <script>
-        console.log('HOLA MAMAGUEVASO')
 
         $(".table tbody").on("click", "tr", function () {
 
