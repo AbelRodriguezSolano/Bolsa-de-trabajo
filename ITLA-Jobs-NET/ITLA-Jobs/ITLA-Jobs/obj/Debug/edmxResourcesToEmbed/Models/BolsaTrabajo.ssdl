@@ -12,21 +12,20 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Tipo" Type="varchar" MaxLength="20" />
-    <Property Name="Company" Type="varchar" MaxLength="50" />
+    <Property Name="Tipo" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Company" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Direccion_url" Type="varchar(max)" />
-    <Property Name="Posicion" Type="varchar" MaxLength="50" />
-    <Property Name="Ubicacion" Type="varchar" MaxLength="100" />
-    <Property Name="Descripcion" Type="varchar(max)" />
-    <Property Name="FechaRegistro" Type="date" />
-    <Property Name="CorreoAplicar" Type="varchar" MaxLength="30" />
-    <Property Name="Categoria" Type="int" />
-    <Property Name="Estado" Type="varchar" MaxLength="10" />
-    <Property Name="EmailUsuario" Type="varchar" MaxLength="100" />
     <Property Name="Logo" Type="varbinary(max)" />
+    <Property Name="Posicion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Ubicacion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar(max)" Nullable="false" />
+    <Property Name="FechaRegistro" Type="date" Nullable="false" />
+    <Property Name="CorreoAplicar" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Categoria" Type="int" Nullable="false" />
+    <Property Name="EmailUsuario" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <Association Name="FK__Vacante__Categor__29572725">
-    <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1">
+    <End Role="Categoria" Type="Self.Categoria" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
     <End Role="Vacante" Type="Self.Vacante" Multiplicity="*" />

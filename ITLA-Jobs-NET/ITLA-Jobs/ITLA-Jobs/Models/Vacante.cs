@@ -18,15 +18,14 @@ namespace ITLA_Jobs.Models
         public string Tipo { get; set; }
         public string Company { get; set; }
         public string Direccion_url { get; set; }
+        public byte[] Logo { get; set; }
         public string Posicion { get; set; }
         public string Ubicacion { get; set; }
         public string Descripcion { get; set; }
-        public Nullable<System.DateTime> FechaRegistro { get; set; }
+        public System.DateTime FechaRegistro { get; set; }
         public string CorreoAplicar { get; set; }
-        public Nullable<int> Categoria { get; set; }
-        public string Estado { get; set; }
+        public int Categoria { get; set; }
         public string EmailUsuario { get; set; }
-        public byte[] Logo { get; set; }
     
         public virtual Categoria Categoria1 { get; set; }
     }

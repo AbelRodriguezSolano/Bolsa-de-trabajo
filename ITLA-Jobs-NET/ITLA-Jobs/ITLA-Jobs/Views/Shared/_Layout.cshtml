@@ -4,12 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - ITLA JOBS</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css" />
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/Home/Index">
             <img src="~/assets/images/ITLA-jobs-logo.png" alt="itla jobs logo" class="menu__img" />
@@ -32,10 +34,14 @@
                 <li class="nav-item">
                     @Html.Partial("_LoginPartial")
                 </li>
+                <li class="nav-item">
+                    <a href="/Vacantes/MisVacantes" class="nav-link">Mis vacantes</a>
+                </li>
             </ul>
 
         </div>
     </nav>
+
     <div class="container body-content">
         @RenderBody()
     </div>
@@ -51,6 +57,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
     <script src="~/Scripts/scripts.js" type="module"></script>
     @RenderSection("scripts", required: false)
 </body>

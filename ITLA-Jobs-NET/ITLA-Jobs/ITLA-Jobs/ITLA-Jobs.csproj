@@ -388,6 +388,7 @@
     <Content Include="Views\Vacantes\Details.cshtml" />
     <Content Include="Views\Vacantes\Edit.cshtml" />
     <Content Include="Views\Vacantes\Index.cshtml" />
+    <Content Include="Views\Vacantes\MisVacantes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

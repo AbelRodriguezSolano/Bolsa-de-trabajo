@@ -17,21 +17,20 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Tipo" Type="varchar" MaxLength="20" />
-          <Property Name="Company" Type="varchar" MaxLength="50" />
+          <Property Name="Tipo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Company" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Direccion_url" Type="varchar(max)" />
-          <Property Name="Posicion" Type="varchar" MaxLength="50" />
-          <Property Name="Ubicacion" Type="varchar" MaxLength="100" />
-          <Property Name="Descripcion" Type="varchar(max)" />
-          <Property Name="FechaRegistro" Type="date" />
-          <Property Name="CorreoAplicar" Type="varchar" MaxLength="30" />
-          <Property Name="Categoria" Type="int" />
-          <Property Name="Estado" Type="varchar" MaxLength="10" />
-          <Property Name="EmailUsuario" Type="varchar" MaxLength="100" />
           <Property Name="Logo" Type="varbinary(max)" />
+          <Property Name="Posicion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ubicacion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar(max)" Nullable="false" />
+          <Property Name="FechaRegistro" Type="date" Nullable="false" />
+          <Property Name="CorreoAplicar" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Categoria" Type="int" Nullable="false" />
+          <Property Name="EmailUsuario" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <Association Name="FK__Vacante__Categor__29572725">
-          <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1">
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Vacante" Type="Self.Vacante" Multiplicity="*" />
@@ -70,22 +69,21 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Tipo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Company" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Company" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Direccion_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Posicion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Ubicacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="FechaRegistro" Type="DateTime" Precision="0" />
-          <Property Name="CorreoAplicar" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Categoria" Type="Int32" />
-          <Property Name="Estado" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="EmailUsuario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Logo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Posicion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ubicacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CorreoAplicar" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Categoria" Type="Int32" Nullable="false" />
+          <Property Name="EmailUsuario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Categoria1" Relationship="Self.FK__Vacante__Categor__29572725" FromRole="Vacante" ToRole="Categoria" />
         </EntityType>
         <Association Name="FK__Vacante__Categor__29572725">
-          <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1">
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Vacante" Type="Self.Vacante" Multiplicity="*" />
@@ -127,15 +125,14 @@
                 <ScalarProperty Name="Tipo" ColumnName="Tipo" />
                 <ScalarProperty Name="Company" ColumnName="Company" />
                 <ScalarProperty Name="Direccion_url" ColumnName="Direccion_url" />
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
                 <ScalarProperty Name="Posicion" ColumnName="Posicion" />
                 <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
                 <ScalarProperty Name="CorreoAplicar" ColumnName="CorreoAplicar" />
                 <ScalarProperty Name="Categoria" ColumnName="Categoria" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
                 <ScalarProperty Name="EmailUsuario" ColumnName="EmailUsuario" />
-                <ScalarProperty Name="Logo" ColumnName="Logo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

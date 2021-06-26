@@ -16,15 +16,14 @@
           <ScalarProperty Name="Tipo" ColumnName="Tipo" />
           <ScalarProperty Name="Company" ColumnName="Company" />
           <ScalarProperty Name="Direccion_url" ColumnName="Direccion_url" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
           <ScalarProperty Name="Posicion" ColumnName="Posicion" />
           <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
           <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
           <ScalarProperty Name="CorreoAplicar" ColumnName="CorreoAplicar" />
           <ScalarProperty Name="Categoria" ColumnName="Categoria" />
-          <ScalarProperty Name="Estado" ColumnName="Estado" />
           <ScalarProperty Name="EmailUsuario" ColumnName="EmailUsuario" />
-          <ScalarProperty Name="Logo" ColumnName="Logo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

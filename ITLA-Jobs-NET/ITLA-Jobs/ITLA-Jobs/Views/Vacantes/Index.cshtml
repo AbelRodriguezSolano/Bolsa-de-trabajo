@@ -9,18 +9,20 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table table-bordered table-hover">
+    <thead>
+
     <tr>
-        <th>
+        <th class="d-none">
             @Html.DisplayNameFor(model => model.Tipo)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Company)
         </th>
-        <th>
+        <th class="d-none">
             @Html.DisplayNameFor(model => model.Direccion_url)
         </th>
-        <th>
+        <th class="d-none">
             @Html.DisplayNameFor(model => model.Logo)
         </th>
         <th>
@@ -29,71 +31,124 @@
         <th>
             @Html.DisplayNameFor(model => model.Ubicacion)
         </th>
-        <th>
+        <th class="d-none">
             @Html.DisplayNameFor(model => model.Descripcion)
         </th>
-        <th>
+        <th class="d-none">
             @Html.DisplayNameFor(model => model.FechaRegistro)
         </th>
-        <th>
+        <th class="d-none">
             @Html.DisplayNameFor(model => model.CorreoAplicar)
         </th>
-        <th>
+        <th class="d-none">
             @Html.DisplayNameFor(model => model.Categoria)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Estado)
-        </th>
-        <th>
+        <th class="d-none">
             @Html.DisplayNameFor(model => model.EmailUsuario)
         </th>
         <th></th>
     </tr>
+    </thead>
+    <tbody>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tipo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Company)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Direccion_url)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Logo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Posicion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ubicacion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descripcion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FechaRegistro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CorreoAplicar)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Categoria)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Estado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmailUsuario)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="d-none">
+                @Html.DisplayFor(modelItem => item.Tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company)
+            </td>
+            <td class="d-none">
+                @Html.DisplayFor(modelItem => item.Direccion_url)
+            </td>
+            <td class="d-none">
+                @Html.DisplayFor(modelItem => item.Logo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Posicion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ubicacion)
+            </td>
+            <td class="d-none">
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td class="d-none">
+                @Html.DisplayFor(modelItem => item.FechaRegistro)
+            </td>
+            <td class="d-none">
+                @Html.DisplayFor(modelItem => item.CorreoAplicar)
+            </td>
+            <td class="d-none">
+                @Html.DisplayFor(modelItem => item.Categoria)
+            </td>
+            <td class="d-none">
+                @Html.DisplayFor(modelItem => item.EmailUsuario)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-success" }) |
+
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+    </tbody>
 
 </table>
+
+<div class="modal fade"
+     id="exampleModal"
+     tabindex="-1"
+     aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal-title">Progrmador</h5>
+                <button type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h6 id="body-title"></h6>
+                <p id="body-title"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button"
+                        class="btn btn-secondary"
+                        data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+
+    <script>
+        $(".table tbody").on("click", "tr", function () {
+            console.log(this.children[0].textContent);
+
+            const modalTitle = document.getElementById("modal-title");
+
+            modalTitle.textContent = this.children[0].textContent;
+
+            $("#exampleModal").modal("show");
+        });
+
+
+        console.log("HiLa");
+        $(document).ready(function () {
+            $(".table").DataTable();
+        });
+    </script>
+
+}
