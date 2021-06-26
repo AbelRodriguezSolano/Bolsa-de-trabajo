@@ -7,7 +7,7 @@
 
 <div class="row mt-5 mb-5">
     <div class="col">
-        <a href="/Vacantes/Create" class="btn btn-success">Publicar Vacante</a>
+        <a href="/Vacantes/Create" class="btn btn-outline-success">Publicar Vacante</a>
     </div>
 </div>
 <table class="table table-bordered table-hover">
@@ -52,9 +52,6 @@
     <script>
 
         $(".table tbody").on("click", "tr", function () {
-
-            console.log(this.id);
-
             setTimeout(() => {
                 location.href = "https://localhost:44325/Vacantes/Details/" + this.id;
             }, 100)

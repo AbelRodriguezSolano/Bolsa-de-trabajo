@@ -4,7 +4,7 @@
 @using Microsoft.AspNet.Identity
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Publicar";
 
     BolsaTrabajoEntities db = new BolsaTrabajoEntities();
     var categorias = db.Categoria.ToList();
@@ -32,7 +32,6 @@
             </div>
 
             <div class="form-group">
-                @*@Html.LabelFor(model => model.Direccion_url, htmlAttributes: new { @class = "control-label col-md-2" })*@
                 <div class="col">
                     @Html.EditorFor(model => model.Direccion_url, new { htmlAttributes = new { @class = "form-control", placeholder = "Dirección URL" } })
                     @Html.ValidationMessageFor(model => model.Direccion_url, "", new { @class = "text-danger" })
@@ -41,7 +40,6 @@
             
 
         <div class="form-group">
-            @*@Html.LabelFor(model => model.Logo, htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="ml-3 ml-md-4 col-11" >
                     <input type="file" name="LogoFile" class="form-control custom-file-input " />
                     <label class="custom-file-label">Selecccionar Logo...</label>
@@ -62,17 +60,6 @@
                     @Html.ValidationMessageFor(model => model.Ubicacion, "", new { @class = "text-danger" })
                 </div>
             </div>
-
-
-
-            @*<div class="form-group">
-            @Html.LabelFor(model => model.FechaRegistro, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col">
-                @Html.EditorFor(model => model.FechaRegistro, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FechaRegistro, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-
             <div class="form-group">
                 <div class="col">
                     @Html.EditorFor(model => model.CorreoAplicar, new { htmlAttributes = new { @class = "form-control", placeholder = "Correo para aplicar" } })
@@ -81,7 +68,6 @@
             </div>
 
             <div class="form-group">
-                @*@Html.LabelFor(model => model.Categoria, htmlAttributes: new { @class = "control-label col-md-2" })*@
                 <div class="col d-flex">
                     @Html.DropDownListFor(model => model.Categoria, ViewBag.categoria as SelectList, "Seleccione categoria", new
                 { htmlAttributes = new { @class = "custom-select p-2" } })
@@ -89,9 +75,7 @@
                 </div>
             </div>
             <div class="form-group">
-                @*@Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })*@
                 <div class="col">
-                    @*@Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })*@
                     <textarea name="Descripcion" id="Descripcion" cols="30" rows="10" placeholder="Descripción o Requisitos de la posición" class="form-control textarea"></textarea>
                     @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
                 </div>
@@ -120,8 +104,11 @@
                 </div>
             </div>
             <div class="form-group">
+                <div class="col mb-2">
+                    <input type="submit" value="Publicar" class="btn btn-primary btn-lg btn-block" />
+                </div>
                 <div class="col">
-                    <input type="submit" value="Create" class="btn btn-primary btn-lg btn-block" />
+                    <a href="/Vacantes/Index" class="btn btn-primary btn-block btn-lg">Vacantes</a>
                 </div>
             </div>
         </div>
@@ -129,10 +116,6 @@
     </div>
 </div>
 
-        <div>
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-
-        @section Scripts {
-            @Scripts.Render("~/bundles/jqueryval")
-        }
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
