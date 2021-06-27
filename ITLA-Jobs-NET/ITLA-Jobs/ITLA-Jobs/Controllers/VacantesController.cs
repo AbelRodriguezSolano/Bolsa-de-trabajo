@@ -51,8 +51,16 @@ namespace ITLA_Jobs.Controllers
         [Authorize]
         public ActionResult Create(Vacante vacante)
         {
+            string nombreLogo = Path.GetFileNameWithoutExtension(vacante.LogoFile.FileName);
+            string extension = Path.GetExtension(vacante.LogoFile.FileName);
+            nombreLogo = nombreLogo + DateTime.Now.ToString("yymmssfff") + extension;
+            vacante.Logo = nombreLogo;
+            nombreLogo = Path.Combine(Server.MapPath("~/Logos/"), nombreLogo);
+            vacante.LogoFile.SaveAs(nombreLogo);
+
             if (ModelState.IsValid)
             {
+                vacante.FechaRegistro = DateTime.Today;
                 vacante.EmailUsuario = User.Identity.GetUserName();
                 db.Vacante.Add(vacante);
                 db.SaveChanges();
@@ -87,16 +95,12 @@ namespace ITLA_Jobs.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Tipo,Company,Direccion_url,Logo,Posicion,Ubicacion,Descripcion,FechaRegistro,CorreoAplicar,Categoria,EmailUsuario")] Vacante vacante)
         {
-            string nombreLogo = Path.GetFileNameWithoutExtension(vacante.LogoFile.FileName);
-            string extension = Path.GetExtension(vacante.LogoFile.FileName);
-            nombreLogo = nombreLogo + DateTime.Now.ToString("yymmssfff") + extension;
-            vacante.Logo = nombreLogo;
-            nombreLogo = Path.Combine(Server.MapPath("~/Logos/"), nombreLogo);
-            vacante.LogoFile.SaveAs(nombreLogo);
+            
 
             vacante.FechaRegistro = DateTime.Today;
             if (ModelState.IsValid)
             {
+                vacante.EmailUsuario = User.Identity.GetUserName();
                 db.Entry(vacante).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
