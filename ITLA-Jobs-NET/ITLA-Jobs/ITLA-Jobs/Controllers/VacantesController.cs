@@ -67,6 +67,7 @@ namespace ITLA_Jobs.Controllers
         }
 
         // GET: Vacantes/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -81,6 +82,7 @@ namespace ITLA_Jobs.Controllers
             return View(vacante);
         }
 
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Tipo,Company,Direccion_url,Logo,Posicion,Ubicacion,Descripcion,FechaRegistro,CorreoAplicar,Categoria,EmailUsuario")] Vacante vacante)
@@ -103,6 +105,8 @@ namespace ITLA_Jobs.Controllers
         }
 
         // GET: Vacantes/Delete/5
+
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -118,6 +122,7 @@ namespace ITLA_Jobs.Controllers
         }
 
         // POST: Vacantes/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

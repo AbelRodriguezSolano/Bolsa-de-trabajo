@@ -11,22 +11,45 @@ namespace ITLA_Jobs.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.Web;
     
     public partial class Vacante
     {
+
         public int Id { get; set; }
+
+        [Display(Name = "Jornada")]
         public string Tipo { get; set; }
+
+        [Display(Name = "Compañía")]
         public string Company { get; set; }
+
+        [Display(Name = "Dirección URL")]
         public string Direccion_url { get; set; }
         public string Logo { get; set; }
         public HttpPostedFileBase LogoFile { get; set; }
+
+        [Display(Name = "Posición")]
         public string Posicion { get; set; }
+
+        [Display(Name = "Ubicación")]
         public string Ubicacion { get; set; }
+
+        [Display(Name = "Descripción")]
         public string Descripcion { get; set; }
+
+        [Display(Name = "Fecha de Publicación")]
+
         public System.DateTime FechaRegistro { get; set; }
+
+        [Display(Name = "Correo Aplicar")]
         public string CorreoAplicar { get; set; }
+
+        [Display(Name = "Categoría")]
         public int Categoria { get; set; }
+
+        [Display(Name = "Correo del Usuario")]
         public string EmailUsuario { get; set; }
     
         public virtual Categoria Categoria1 { get; set; }
