@@ -1,5 +1,7 @@
 ﻿@model ITLA_Jobs.Models.Vacante
 @using Microsoft.AspNet.Identity;
+@using ITLA_Jobs.Models
+
 
 
 @{
@@ -9,17 +11,17 @@
 <h2>Edit</h2>
 
 @{
-    if (Model.EmailUsuario ==User.Identity.GetUserName())
+    if (Model.EmailUsuario == User.Identity.GetUserName())
     {
-        using (Html.BeginForm())
+        using (Html.BeginForm("Edit", "Vacantes", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
             @Html.AntiForgeryToken()
 
             <div class="form-horizontal">
                 <h4>Vacante</h4>
                 <hr />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                @Html.HiddenFor(model => model.Id)
+                @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.Id)*@
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.Tipo, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -46,12 +48,30 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Logo, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Logo, new { htmlAttributes = new { @class = "form-control" } })
+                    <div class="ml-3 ml-md-4 col-11">
+                        <input type="file" name="LogoFile" class="form-control custom-file-input " />
+                        <label class="custom-file-label">Editar logo de su compañia...</label>
                         @Html.ValidationMessageFor(model => model.Logo, "", new { @class = "text-danger" })
                     </div>
                 </div>
+
+                <script>
+                    $(function () {
+                        $('#submitSave').unbind('click');
+                        $('#submitSave').on('click', function () {
+                            $.ajax({
+                                url: "/Vacante/Edit",
+                                type: 'POST',
+                                contentType: "application/json; charset=utf-8",
+                                dataType: 'json',
+                                data: JSON.stringify({
+                                    txtValue: $("#LogoFile").val()
+                                }),
+                                async: false
+                            });
+                       });
+                   });
+                </script>
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.Posicion, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -78,14 +98,6 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.FechaRegistro, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.FechaRegistro, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.FechaRegistro, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
                     @Html.LabelFor(model => model.CorreoAplicar, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.CorreoAplicar, new { htmlAttributes = new { @class = "form-control" } })
@@ -103,16 +115,16 @@
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Save" class="btn btn-default" />
+                        <input type="submit" value="Save" id="submitSave" class="btn btn-default" />
                     </div>
                 </div>
             </div>
         }
     }
-            else
-            {
-                <h1>Usted no puede editar esta vacante</h1>
-            }
+    else
+    {
+        <h1>Usted no puede editar esta vacante</h1>
+    }
 
 }
 

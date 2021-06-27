@@ -173,6 +173,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\Vacantes1Controller.cs" />
     <Compile Include="Controllers\VacantesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -387,10 +388,16 @@
     <Content Include="Views\Vacantes\Edit.cshtml" />
     <Content Include="Views\Vacantes\Index.cshtml" />
     <Content Include="Views\Vacantes\MisVacantes.cshtml" />
+    <Content Include="Views\Vacantes1\Create.cshtml" />
+    <Content Include="Views\Vacantes1\Delete.cshtml" />
+    <Content Include="Views\Vacantes1\Details.cshtml" />
+    <Content Include="Views\Vacantes1\Edit.cshtml" />
+    <Content Include="Views\Vacantes1\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Logos\" />
+    <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

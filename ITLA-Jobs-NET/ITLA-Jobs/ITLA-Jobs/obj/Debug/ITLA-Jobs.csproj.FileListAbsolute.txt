@@ -219,8 +219,8 @@ C:\Users\leuri\Documents\Itla Documents\Cuatrimestre 3\Programacion III\Proyecto
 C:\Users\leuri\Documents\Itla Documents\Cuatrimestre 3\Programacion III\Proyecto web\Bolsa-de-trabajo\ITLA-Jobs-NET\ITLA-Jobs\ITLA-Jobs\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\leuri\Documents\Itla Documents\Cuatrimestre 3\Programacion III\Proyecto web\Bolsa-de-trabajo\ITLA-Jobs-NET\ITLA-Jobs\ITLA-Jobs\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\leuri\Documents\Itla Documents\Cuatrimestre 3\Programacion III\Proyecto web\Bolsa-de-trabajo\ITLA-Jobs-NET\ITLA-Jobs\ITLA-Jobs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\leuri\Documents\Itla Documents\Cuatrimestre 3\Programacion III\Proyecto web\Bolsa-de-trabajo\ITLA-Jobs-NET\ITLA-Jobs\ITLA-Jobs\obj\Debug\ITLA-Jobs.csprojAssemblyReference.cache
 C:\Users\leuri\Documents\Itla Documents\Cuatrimestre 3\Programacion III\Proyecto web\Bolsa-de-trabajo\ITLA-Jobs-NET\ITLA-Jobs\ITLA-Jobs\obj\Debug\ITLA-Jobs.csproj.CoreCompileInputs.cache
 C:\Users\leuri\Documents\Itla Documents\Cuatrimestre 3\Programacion III\Proyecto web\Bolsa-de-trabajo\ITLA-Jobs-NET\ITLA-Jobs\ITLA-Jobs\obj\Debug\ITLA-Jobs.csproj.CopyComplete
 C:\Users\leuri\Documents\Itla Documents\Cuatrimestre 3\Programacion III\Proyecto web\Bolsa-de-trabajo\ITLA-Jobs-NET\ITLA-Jobs\ITLA-Jobs\obj\Debug\ITLA-Jobs.dll
 C:\Users\leuri\Documents\Itla Documents\Cuatrimestre 3\Programacion III\Proyecto web\Bolsa-de-trabajo\ITLA-Jobs-NET\ITLA-Jobs\ITLA-Jobs\obj\Debug\ITLA-Jobs.pdb
+C:\Users\leuri\Documents\Itla Documents\Cuatrimestre 3\Programacion III\Proyecto web\Bolsa-de-trabajo\ITLA-Jobs-NET\ITLA-Jobs\ITLA-Jobs\obj\Debug\ITLA-Jobs.csprojAssemblyReference.cache

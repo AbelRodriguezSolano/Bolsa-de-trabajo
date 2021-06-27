@@ -16,7 +16,6 @@ namespace ITLA_Jobs.Models
     
     public partial class Vacante
     {
-
         public int Id { get; set; }
 
         [Display(Name = "Jornada")]
@@ -27,7 +26,9 @@ namespace ITLA_Jobs.Models
 
         [Display(Name = "Dirección URL")]
         public string Direccion_url { get; set; }
+
         public string Logo { get; set; }
+
         public HttpPostedFileBase LogoFile { get; set; }
 
         [Display(Name = "Posición")]
