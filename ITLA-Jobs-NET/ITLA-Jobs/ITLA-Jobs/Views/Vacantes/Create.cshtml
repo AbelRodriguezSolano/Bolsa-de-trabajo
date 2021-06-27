@@ -6,11 +6,15 @@
 @{
     ViewBag.Title = "Publicar";
 
+    #region Logica DropDownList
+
     BolsaTrabajoEntities db = new BolsaTrabajoEntities();
     var categorias = db.Categoria.ToList();
 
     SelectList lista = new SelectList(categorias, "Id", "Nombre");
     ViewBag.categoria = lista;
+
+    #endregion
 }
 
 <div class="row justify-content-center mt-5">
@@ -20,98 +24,98 @@
         {
             @Html.AntiForgeryToken()
 
-        <div class="form-horizontal">
-            <h2>PUBLICAR TRABAJO</h2>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                <div class="col">
-                    @Html.EditorFor(model => model.Company, new { htmlAttributes = new { @class = "form-control", placeholder = "Nombre de la compañía" } })
-                    @Html.ValidationMessageFor(model => model.Company, "", new { @class = "text-danger" })
+            <div class="form-horizontal">
+                <h2>PUBLICAR TRABAJO</h2>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <div class="col">
+                        @Html.EditorFor(model => model.Company, new { htmlAttributes = new { @class = "form-control", placeholder = "Nombre de la compañía" } })
+                        @Html.ValidationMessageFor(model => model.Company, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <div class="col">
-                    @Html.EditorFor(model => model.Direccion_url, new { htmlAttributes = new { @class = "form-control", placeholder = "Dirección URL" } })
-                    @Html.ValidationMessageFor(model => model.Direccion_url, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <div class="col">
+                        @Html.EditorFor(model => model.Direccion_url, new { htmlAttributes = new { @class = "form-control", placeholder = "Dirección URL" } })
+                        @Html.ValidationMessageFor(model => model.Direccion_url, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
             
 
-        <div class="form-group">
-            <div class="ml-3 ml-md-4 col-11" >
-                    <input type="file" name="LogoFile" class="form-control custom-file-input " />
-                    <label class="custom-file-label">Selecccionar Logo...</label>
-                    @Html.ValidationMessageFor(model => model.Logo, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-            <div class="form-group">
-                <div class="col">
-                    @Html.EditorFor(model => model.Posicion, new { htmlAttributes = new { @class = "form-control", placeholder = "Posición para ofrecer" } })
-                    @Html.ValidationMessageFor(model => model.Posicion, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col">
-                    @Html.EditorFor(model => model.Ubicacion, new { htmlAttributes = new { @class = "form-control", placeholder = "Ubicación de la compañía" } })
-                    @Html.ValidationMessageFor(model => model.Ubicacion, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col">
-                    @Html.EditorFor(model => model.CorreoAplicar, new { htmlAttributes = new { @class = "form-control", placeholder = "Correo para aplicar" } })
-                    @Html.ValidationMessageFor(model => model.CorreoAplicar, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col d-flex">
-                    @Html.DropDownListFor(model => model.Categoria, ViewBag.categoria as SelectList, "Seleccione categoria", new
-                { htmlAttributes = new { @class = "custom-select p-2" } })
-                    @Html.ValidationMessageFor(model => model.Categoria, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col">
-                    <textarea name="Descripcion" id="Descripcion" cols="30" rows="10" placeholder="Descripción o Requisitos de la posición" class="form-control textarea"></textarea>
-                    @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="d-flex justify-content-center mb-3">
-                    <div class="form-check form-check-inline">
-                        <label>
-                            @Html.RadioButtonFor(model => model.Tipo, "Remoto")
-                            Remoto
-                        </label>
+                <div class="form-group">
+                    <div class="ml-3 ml-md-4 col-11" >
+                            <input type="file" name="LogoFile" class="form-control custom-file-input " />
+                            <label class="custom-file-label">Selecccionar logo de su compañia...</label>
+                            @Html.ValidationMessageFor(model => model.Logo, "", new { @class = "text-danger" })
                     </div>
-                    <div class="form-check form-check-inline">
-                        <label>
-                            @Html.RadioButtonFor(model => model.Tipo, "Medio tiempo")
-                            Medio Tiempo
-                        </label>
+                </div>
+
+                <div class="form-group">
+                    <div class="col">
+                        @Html.EditorFor(model => model.Posicion, new { htmlAttributes = new { @class = "form-control", placeholder = "Posición para ofrecer" } })
+                        @Html.ValidationMessageFor(model => model.Posicion, "", new { @class = "text-danger" })
                     </div>
-                    <div class="form-check form-check-inline">
-                        <label>
-                            @Html.RadioButtonFor(model => model.Tipo, "Tiempo completo")
-                            Tiempo Completo
-                        </label>
+                </div>
+
+                <div class="form-group">
+                    <div class="col">
+                        @Html.EditorFor(model => model.Ubicacion, new { htmlAttributes = new { @class = "form-control", placeholder = "Ubicación de la compañía" } })
+                        @Html.ValidationMessageFor(model => model.Ubicacion, "", new { @class = "text-danger" })
                     </div>
-                    @Html.ValidationMessageFor(model => model.Tipo, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <div class="col">
+                        @Html.EditorFor(model => model.CorreoAplicar, new { htmlAttributes = new { @class = "form-control", placeholder = "Correo para aplicar" } })
+                        @Html.ValidationMessageFor(model => model.CorreoAplicar, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col d-flex">
+                        @Html.DropDownListFor(model => model.Categoria, ViewBag.categoria as SelectList, "Seleccione categoria", new
+                    { htmlAttributes = new { @class = "custom-select p-2" } })
+                        @Html.ValidationMessageFor(model => model.Categoria, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col">
+                        <textarea name="Descripcion" id="Descripcion" cols="30" rows="10" placeholder="Descripción o Requisitos de la posición" class="form-control textarea"></textarea>
+                        @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="d-flex justify-content-center mb-3">
+                        <div class="form-check form-check-inline">
+                            <label>
+                                @Html.RadioButtonFor(model => model.Tipo, "Remoto")
+                                Remoto
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <label>
+                                @Html.RadioButtonFor(model => model.Tipo, "Medio tiempo")
+                                Medio Tiempo
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <label>
+                                @Html.RadioButtonFor(model => model.Tipo, "Tiempo completo")
+                                Tiempo Completo
+                            </label>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.Tipo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col mb-2">
+                        <input type="submit" value="Publicar" class="btn btn-primary btn-lg btn-block" />
+                    </div>
+                    <div class="col">
+                        <a href="/Vacantes/Index" class="btn btn-primary btn-block btn-lg">Vacantes</a>
+                    </div>
                 </div>
             </div>
-            <div class="form-group">
-                <div class="col mb-2">
-                    <input type="submit" value="Publicar" class="btn btn-primary btn-lg btn-block" />
-                </div>
-                <div class="col">
-                    <a href="/Vacantes/Index" class="btn btn-primary btn-block btn-lg">Vacantes</a>
-                </div>
-            </div>
-        </div>
         }
     </div>
 </div>

@@ -51,19 +51,28 @@ namespace ITLA_Jobs.Controllers
         [Authorize]
         public ActionResult Create(Vacante vacante)
         {
-            string nombreLogo = Path.GetFileNameWithoutExtension(vacante.LogoFile.FileName);
-            string extension = Path.GetExtension(vacante.LogoFile.FileName);
-            nombreLogo = nombreLogo + DateTime.Now.ToString("yymmssfff") + extension;
-            vacante.Logo = nombreLogo;
-            nombreLogo = Path.Combine(Server.MapPath("~/Logos/"), nombreLogo);
-            vacante.LogoFile.SaveAs(nombreLogo);
-
-            if (ModelState.IsValid)
+            try
             {
-                vacante.FechaRegistro = DateTime.Today;
-                vacante.EmailUsuario = User.Identity.GetUserName();
-                db.Vacante.Add(vacante);
-                db.SaveChanges();
+                string nombreLogo = Path.GetFileNameWithoutExtension(vacante.LogoFile.FileName);
+                string extension = Path.GetExtension(vacante.LogoFile.FileName);
+                nombreLogo = nombreLogo + DateTime.Now.ToString("yymmssfff") + extension;
+                vacante.Logo = nombreLogo;
+                nombreLogo = Path.Combine(Server.MapPath("~/Logos/"), nombreLogo);
+                vacante.LogoFile.SaveAs(nombreLogo);
+            } 
+            catch (Exception)
+            {
+
+            }
+            finally 
+            {
+                if (ModelState.IsValid)
+                {
+                    vacante.FechaRegistro = DateTime.Today;
+                    vacante.EmailUsuario = User.Identity.GetUserName();
+                    db.Vacante.Add(vacante);
+                    db.SaveChanges();
+                }
             }
 
             return RedirectToAction("Index", vacante);  
@@ -87,25 +96,41 @@ namespace ITLA_Jobs.Controllers
             {
                 return HttpNotFound();
             }
+
             return View(vacante);
         }
-
+        
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Tipo,Company,Direccion_url,Logo,Posicion,Ubicacion,Descripcion,FechaRegistro,CorreoAplicar,Categoria,EmailUsuario")] Vacante vacante)
+        public ActionResult Edit([Bind(Include = "Id,Tipo,Company,Direccion_url,Logo,Posicion,Ubicacion,Descripcion,FechaRegistro,CorreoAplicar,Categoria,EmailUsuario")] Vacante vacante, HttpPostedFileBase LogoFile)
         {
-            
-
-            vacante.FechaRegistro = DateTime.Today;
-            if (ModelState.IsValid)
+            try
             {
-                vacante.EmailUsuario = User.Identity.GetUserName();
-                db.Entry(vacante).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                string nombreLogo = Path.GetFileNameWithoutExtension(LogoFile.FileName);
+                string extension = Path.GetExtension(LogoFile.FileName);
+                nombreLogo = nombreLogo + DateTime.Now.ToString("yymmssfff") + extension;
+                vacante.Logo = nombreLogo;
+                vacante.LogoFile = LogoFile;
+                nombreLogo = Path.Combine(Server.MapPath("~/Logos/"), nombreLogo);
+                vacante.LogoFile.SaveAs(nombreLogo);
             }
-            return View(vacante);
+            catch (Exception)
+            {
+
+            }
+            finally
+            {
+                if (ModelState.IsValid)
+                {
+                    vacante.FechaRegistro = DateTime.Today;
+                    vacante.EmailUsuario = User.Identity.GetUserName();
+                    db.Entry(vacante).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+            }
+                
+            return RedirectToAction("Index", vacante);
         }
 
         // GET: Vacantes/Delete/5
@@ -133,7 +158,7 @@ namespace ITLA_Jobs.Controllers
             Vacante vacante = db.Vacante.Find(id);
             db.Vacante.Remove(vacante);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("MisVacantes");
         }
 
         protected override void Dispose(bool disposing)
