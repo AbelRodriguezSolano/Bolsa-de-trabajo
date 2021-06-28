@@ -3,21 +3,15 @@
     ViewBag.Title = "MisVacantes";
 }
 
-<h2>MisVacantes</h2>
+<h2 class="text-info my-3">Mis Vacantes</h2>
 
-<table class="table">
+<table class="table table-bordered table-hover">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Tipo)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.Company)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Direccion_url)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Logo)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Posicion)
@@ -26,68 +20,56 @@
             @Html.DisplayNameFor(model => model.Ubicacion)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Tipo)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Descripcion)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FechaRegistro)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.CorreoAplicar)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Categoria)
-        </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.Estado)
-        </th>*@
-        <th>
-            @Html.DisplayNameFor(model => model.EmailUsuario)
         </th>
         <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tipo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Company)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Direccion_url)
-            </td>
-            <td>
-                <img src="~/Logos/@Html.DisplayFor(modelItem => item.Logo)" alt="Logo" width="100" />
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Posicion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ubicacion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaRegistro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CorreoAplicar)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Categoria)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EmailUsuario)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
-        </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Company)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Direccion_url)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Posicion)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Ubicacion)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Tipo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Descripcion)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CorreoAplicar)
+    </td>
+
+    
+
+    <td>
+        <a href="@Url.Action("Edit", "Vacantes")/@item.Id" class="btn btn-success">
+            <i class="fa fa-pencil"></i>
+        </a>
+        <a href="@Url.Action("Details", "Vacantes")/@item.Id" class="btn btn-info">
+            <i class="fa fa-address-card"></i>
+        </a>        
+        <a href="@Url.Action("Delete", "Vacantes")/@item.Id" class="btn btn-danger">
+            <i class="fa fa-trash"></i>
+        </a>
+    </td>
+</tr>
     }
 
 </table>

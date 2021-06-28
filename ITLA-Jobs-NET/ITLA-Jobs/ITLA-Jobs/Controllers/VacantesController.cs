@@ -53,12 +53,16 @@ namespace ITLA_Jobs.Controllers
         {
             try
             {
-                string nombreLogo = Path.GetFileNameWithoutExtension(vacante.LogoFile.FileName);
-                string extension = Path.GetExtension(vacante.LogoFile.FileName);
-                nombreLogo = nombreLogo + DateTime.Now.ToString("yymmssfff") + extension;
-                vacante.Logo = nombreLogo;
-                nombreLogo = Path.Combine(Server.MapPath("~/Logos/"), nombreLogo);
-                vacante.LogoFile.SaveAs(nombreLogo);
+                if (vacante.LogoFile!=null)
+                {
+                    string nombreLogo = Path.GetFileNameWithoutExtension(vacante.LogoFile.FileName);
+                    string extension = Path.GetExtension(vacante.LogoFile.FileName);
+                    nombreLogo = nombreLogo + DateTime.Now.ToString("yymmssfff") + extension;
+                    vacante.Logo = nombreLogo;
+                    nombreLogo = Path.Combine(Server.MapPath("~/Logos/"), nombreLogo);
+                    vacante.LogoFile.SaveAs(nombreLogo);
+                }
+                
             } 
             catch (Exception)
             {
@@ -107,13 +111,17 @@ namespace ITLA_Jobs.Controllers
         {
             try
             {
-                string nombreLogo = Path.GetFileNameWithoutExtension(LogoFile.FileName);
-                string extension = Path.GetExtension(LogoFile.FileName);
-                nombreLogo = nombreLogo + DateTime.Now.ToString("yymmssfff") + extension;
-                vacante.Logo = nombreLogo;
-                vacante.LogoFile = LogoFile;
-                nombreLogo = Path.Combine(Server.MapPath("~/Logos/"), nombreLogo);
-                vacante.LogoFile.SaveAs(nombreLogo);
+                if (LogoFile != null)
+                {
+                    string nombreLogo = Path.GetFileNameWithoutExtension(LogoFile.FileName);
+                    string extension = Path.GetExtension(LogoFile.FileName);
+                    nombreLogo = nombreLogo + DateTime.Now.ToString("yymmssfff") + extension;
+                    vacante.Logo = nombreLogo;
+                    vacante.LogoFile = LogoFile;
+                    nombreLogo = Path.Combine(Server.MapPath("~/Logos/"), nombreLogo);
+                    vacante.LogoFile.SaveAs(nombreLogo);
+                }
+                
             }
             catch (Exception)
             {
@@ -130,7 +138,7 @@ namespace ITLA_Jobs.Controllers
                 }
             }
                 
-            return RedirectToAction("Index", vacante);
+            return RedirectToAction("MisVacantes", vacante);
         }
 
         // GET: Vacantes/Delete/5

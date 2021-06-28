@@ -18,7 +18,7 @@
 }
 
 <div class="row justify-content-center mt-5">
-    <div class="col-12 col-md-8">
+    <div class="col-12 col-md-8 text-center">
 
         @using (Html.BeginForm("Create", "Vacantes", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
@@ -45,8 +45,8 @@
 
                 <div class="form-group">
                     <div class="ml-3 ml-md-4 col-11" >
-                            <input type="file" name="LogoFile" class="form-control custom-file-input " />
-                            <label class="custom-file-label">Selecccionar logo de su compañia...</label>
+                            <input type="file" name="LogoFile" class="custom-file-input " />
+                            <label class="custom-file-label text-left">Selecccionar logo de su compañia...</label>
                             @Html.ValidationMessageFor(model => model.Logo, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -73,8 +73,7 @@
 
                 <div class="form-group">
                     <div class="col d-flex">
-                        @Html.DropDownListFor(model => model.Categoria, ViewBag.categoria as SelectList, "Seleccione categoria", new
-                    { htmlAttributes = new { @class = "custom-select p-2" } })
+                        @Html.DropDownListFor(model => model.Categoria, ViewBag.categoria as SelectList, "Seleccione categoria", new { @class = "form-control" })
                         @Html.ValidationMessageFor(model => model.Categoria, "", new { @class = "text-danger" })
                     </div>
                 </div>
