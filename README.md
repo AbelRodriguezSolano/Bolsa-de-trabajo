@@ -1,21 +1,19 @@
-# Bolsa-de-trabajo
+# Bolsa de trabajo
 
-Bolsa de trabajo
+<b>Frontend technologies</b>
 
-Front-end technologies
+![html](./iconos/html.png)
+![css](./iconos/css.png)
+![js](./iconos/js.png)
+![bootstrap](./iconos/bootstrap.png)
 
-![html](/iconos/html.png)
-![css](/iconos/css.png)
-![bootstrap](/iconos/bootstrap.png)
-![js](/iconos/js.png)
+<b>Backend technologies</b>
 
-Back-end technologies
+![csharp](./iconos/csharp.png)
+![entity](./iconos/entity.png)
+![core](./iconos/core.png)
+![asp](./iconos/asp.jpg)
 
-![entity](/iconos/entity.png)
-![core](/iconos/core.png)
-![csharp](/iconos/csharp.png)
-![asp](/iconos/asp.jpg)
+<b>Base de datos</b>
 
-Base de datos
-
-![sql](/iconos/sql.png)
+![sql](./iconos/sql.png)
