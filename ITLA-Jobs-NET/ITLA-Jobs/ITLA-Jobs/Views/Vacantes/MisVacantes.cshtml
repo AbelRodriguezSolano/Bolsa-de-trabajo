@@ -58,14 +58,14 @@
 
     
 
-    <td>
-        <a href="@Url.Action("Edit", "Vacantes")/@item.Id" class="btn btn-success">
+    <td class="d-flex">
+        <a href="@Url.Action("Edit", "Vacantes")/@item.Id" class="btn btn-success ml-1">
             <i class="fa fa-pencil"></i>
         </a>
-        <a href="@Url.Action("Details", "Vacantes")/@item.Id" class="btn btn-info">
+        <a href="@Url.Action("Details", "Vacantes")/@item.Id" class="btn btn-info ml-1">
             <i class="fa fa-address-card"></i>
         </a>        
-        <a href="@Url.Action("Delete", "Vacantes")/@item.Id" class="btn btn-danger">
+        <a href="@Url.Action("Delete", "Vacantes")/@item.Id" class="btn btn-danger ml-1">
             <i class="fa fa-trash"></i>
         </a>
     </td>

@@ -68,6 +68,7 @@ namespace ITLA_Jobs.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
+            model.Email.ToLower();
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -149,6 +150,7 @@ namespace ITLA_Jobs.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+            model.Email.ToLower();
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };

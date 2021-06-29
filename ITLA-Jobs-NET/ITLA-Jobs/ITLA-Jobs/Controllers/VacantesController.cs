@@ -73,7 +73,7 @@ namespace ITLA_Jobs.Controllers
                 if (ModelState.IsValid)
                 {
                     vacante.FechaRegistro = DateTime.Today;
-                    vacante.EmailUsuario = User.Identity.GetUserName();
+                    vacante.EmailUsuario = User.Identity.GetUserName().ToLower();
                     db.Vacante.Add(vacante);
                     db.SaveChanges();
                 }
@@ -132,7 +132,7 @@ namespace ITLA_Jobs.Controllers
                 if (ModelState.IsValid)
                 {
                     vacante.FechaRegistro = DateTime.Today;
-                    vacante.EmailUsuario = User.Identity.GetUserName();
+                    vacante.EmailUsuario = User.Identity.GetUserName().ToLower();
                     db.Entry(vacante).State = EntityState.Modified;
                     db.SaveChanges();
                 }
@@ -181,7 +181,7 @@ namespace ITLA_Jobs.Controllers
         [Authorize]
         public ActionResult MisVacantes()
         {
-            return View(from datos in db.Vacante.ToList() where datos.EmailUsuario == User.Identity.GetUserName() select datos);
+            return View(from datos in db.Vacante.ToList() where datos.EmailUsuario == User.Identity.GetUserName().ToLower() select datos); 
         }
     }
 }
