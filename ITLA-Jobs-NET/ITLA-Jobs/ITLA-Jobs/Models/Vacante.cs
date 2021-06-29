@@ -18,12 +18,19 @@ namespace ITLA_Jobs.Models
     {
         public int Id { get; set; }
 
+        [StringLength(20, ErrorMessage = "Solo puede contener 20 dígitos.")]
+        [Required(ErrorMessage = "Este campo es obligatorio")]
         [Display(Name = "Jornada")]
         public string Tipo { get; set; }
 
+        [MinLength(3, ErrorMessage = "Debe contener mínimo 3 dígitos.")]
+        [StringLength(50, ErrorMessage = "Solo puede contener 50 dígitos.")]
+        [Required(ErrorMessage = "Este campo es obligatorio")]
         [Display(Name = "Compañía")]
         public string Company { get; set; }
 
+        [RegularExpression(@"^(http|ftp|https)?(\:\/\/)?([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?", ErrorMessage = "Verifique la dirección URL")]
+        [StringLength(200, ErrorMessage = "Solo puede contener 200 dígitos.")]
         [Display(Name = "Dirección URL")]
         public string Direccion_url { get; set; }
 
@@ -31,25 +38,39 @@ namespace ITLA_Jobs.Models
 
         public HttpPostedFileBase LogoFile { get; set; }
 
+        [MinLength(3, ErrorMessage = "Debe contener mínimo 3 dígitos.")]
+        [StringLength(50, ErrorMessage = "Solo puede contener 50 dígitos.")]
+        [Required(ErrorMessage = "Este campo es obligatorio")]
         [Display(Name = "Posición")]
         public string Posicion { get; set; }
 
+        [MinLength(10, ErrorMessage = "Debe contener mínimo 10 dígitos.")]
+        [StringLength(100, ErrorMessage = "Solo puede contener 100 dígitos.")]
+        [Required(ErrorMessage = "Este campo es obligatorio")]
         [Display(Name = "Ubicación")]
         public string Ubicacion { get; set; }
 
+        [MinLength(10, ErrorMessage = "Debe contener mínimo 10 dígitos.")]
+        [StringLength(200, ErrorMessage = "Solo puede contener 200 dígitos.")]
+        [Required(ErrorMessage = "Este campo es obligatorio")]
         [Display(Name = "Descripción")]
         public string Descripcion { get; set; }
 
         [Display(Name = "Fecha de Publicación")]
-
         public System.DateTime FechaRegistro { get; set; }
 
+        [RegularExpression(@"^[_a-z0-9-]+(.[_a-z0-9-]+)*\@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$", ErrorMessage = "Verifique el correo electrónico.")]
+        [StringLength(30, ErrorMessage = "Solo puede contener 30 digitos")]
+        [Required(ErrorMessage = "Este campo es obligatorio")]
         [Display(Name = "Correo Aplicar")]
         public string CorreoAplicar { get; set; }
 
+        [Required(ErrorMessage = "Este campo es obligatorio")]
         [Display(Name = "Categoría")]
         public int Categoria { get; set; }
 
+        [RegularExpression(@"^[_a-z0-9-]+(.[_a-z0-9-]+)*\@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$", ErrorMessage = "Verifique el correo electrónico.")]
+        [StringLength(100, ErrorMessage = "Solo puede contener 100 dígitos.")]
         [Display(Name = "Correo del Usuario")]
         public string EmailUsuario { get; set; }
     
