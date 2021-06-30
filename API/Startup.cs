@@ -16,6 +16,7 @@ namespace API
 {
     public class Startup
     {
+        readonly string  Cors_Cateogira = "Allowed";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -32,6 +33,14 @@ namespace API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
             });
+            services.AddCors(options=> {
+                options.AddPolicy("Allowed", builder =>
+                {
+                    //builder.WithOrigins("https://localhost:44322");
+                    builder.SetIsOriginAllowed(origin => new Uri(origin).Host == "localhost").AllowAnyHeader().AllowAnyMethod();
+                    //builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,9 +54,8 @@ namespace API
             }
 
             app.UseHttpsRedirection();
-
+            app.UseCors("Allowed");
             app.UseRouting();
-
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

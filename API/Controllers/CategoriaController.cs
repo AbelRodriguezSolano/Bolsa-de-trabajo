@@ -6,11 +6,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Datos.Entidades;
+using Microsoft.AspNetCore.Cors;
 
 namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("Allowed")]
+
     public class CategoriaController : ControllerBase
     {
         ConsultasCategorias data = new ConsultasCategorias();
