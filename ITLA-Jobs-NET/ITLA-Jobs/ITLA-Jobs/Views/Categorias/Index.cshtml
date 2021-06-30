@@ -1,0 +1,230 @@
+﻿
+@{
+    ViewBag.Title = "Categorias";
+}
+
+<div class="container mt-3">
+    <button class="btn btn-outline-primary my-3"
+            data-toggle="modal"
+            data-target="#modal-categorias"
+            id="btnAdd">
+        Agregar Categoria
+    </button>
+
+    <table class="table table-bordered table-hover">
+        <caption class="bg-dark text-white text-center text-uppercase">
+            Categorias
+        </caption>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="d-none">
+                <td>Hola</td>
+                <td>Hola</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="modal fade"
+     id="modal-categorias"
+     tabindex="-1"
+     aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" id="modal-categorias">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                    Agregar Categoria
+                </h5>
+                <button type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-danger text-center d-none">Hola Mundo</div>
+                <input type="text"
+                       class="form-control"
+                       placeholder="Nombre de la categoria"
+                       id="inputcategoria" />
+            </div>
+            <div class="modal-footer">
+                <button type="button"
+                        class="btn btn-secondary"
+                        data-dismiss="modal">
+                    Close
+                </button>
+                <button type="button" class="btn btn-primary" id="btnSave">
+                    Guardar
+                </button>
+                <button type="button" class="btn btn-success d-none" id="btnEdit">
+                    <i class="fa fa-pencil"></i>
+                </button>
+                <button type="button" class="btn btn-danger d-none" id="btnDelete">
+                    <i class="fa fa-trash"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <script>
+        const url = "https://localhost:44322/api/Categoria";
+        const input = document.getElementById("inputcategoria");
+        const alert = document.querySelector(".alert");
+        const btnSave = document.getElementById("btnSave");
+        const btnDelete = document.getElementById("btnDelete");
+        const btnEdit = document.getElementById("btnEdit");
+        const btnAdd = document.getElementById("btnAdd");
+
+        btnAdd.addEventListener("click", () => {
+            btnSave.classList.remove("d-none");
+            btnEdit.classList.add("d-none");
+            btnDelete.classList.add("d-none");
+        });
+
+        const RowRemove = () => {
+            const row = document.querySelectorAll(".getdata");
+            for (const key of row) {
+                key.remove();
+            }
+            GET();
+        };
+
+        const GET = async () => {
+            const table = document.querySelector(".table");
+            const data = await fetch(url);
+            const json = await data.json();
+
+            json.map((info) => {
+                const row = table.insertRow();
+                row.classList.add("getdata");
+                row.innerHTML = ` <td>${info.id}</td> <td>${info.nombre}</td>`;
+            });
+        };
+
+        GET();
+
+        const POST = () => { };
+
+        btnSave.addEventListener("click", () => {
+            const data = {
+                idCategoria: 0,
+                nombre: input.value,
+            };
+            if (input.value === "") {
+                alert.classList.remove("d-none");
+                alert.textContent = "El campo no puede estar vacio";
+            } else {
+                alert.classList.add("d-none");
+                $("#modal-categorias").modal("hide");
+
+                fetch(url, {
+                    method: "POST",
+                    body: JSON.stringify(data),
+                    headers: {
+                        "content-type": "application/json",
+                    },
+                })
+                    .then((res) => res.json())
+                    .then(() => {
+                        setTimeout(RowRemove, 100);
+                        input.value = "";
+                    });
+            }
+        });
+
+        $(".table tbody").on("click", "tr", function () {
+            $("#modal-categorias").modal("show");
+            btnSave.classList.add("d-none");
+            btnEdit.classList.remove("d-none");
+            btnDelete.classList.remove("d-none");
+            input.value = this.children[1].textContent;
+
+            const data = {
+                idCategoria: this.children[0].textContent,
+                nombre: input.value,
+            };
+
+            btnEdit.addEventListener("click", () => {
+                if (input.value === "") {
+                    alert.classList.remove("d-none");
+                    alert.textContent = "El campo no puede estar vacio";
+                } else {
+                    alert.classList.add("d-none");
+                    $("#modal-categorias").modal("hide");
+                    Swal.fire({
+                        title: "Do you want to save the changes?",
+                        showDenyButton: true,
+                        showCancelButton: true,
+                        confirmButtonText: `Save`,
+                        denyButtonText: `Don't save`,
+                    }).then((result) => {
+                        /* Read more about isConfirmed, isDenied below */
+                        if (result.isConfirmed) {
+                            Swal.fire("Saved!", "", "success");
+                            console.log(data);
+                            PUT(data);
+                        } else if (result.isDenied) {
+                            Swal.fire("Changes are not saved", "", "info");
+                        }
+                    });
+                }
+            });
+
+            btnDelete.addEventListener("click", () => {
+                $("#modal-categorias").modal("hide");
+
+                Swal.fire({
+                    title: "Are you sure?",
+                    text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes, delete it!",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+                        Delete(data);
+                    }
+                });
+            });
+        });
+
+        const Delete = (data) => {
+            fetch(url, {
+                method: "DELETE",
+                body: JSON.stringify(data),
+                headers: {
+                    "content-type": "application/json",
+                },
+            })
+                .then((res) => res.json())
+                .then((res) => console.log(res));
+        };
+
+        const PUT = (data) => {
+            fetch(url, {
+                method: "PUT",
+                body: JSON.stringify(data),
+                headers: {
+                    "content-type": "application/json",
+                },
+            })
+                .then((res) => res.json())
+                .then(() => {
+                    setTimeout(RowRemove, 100);
+                });
+        };
+    </script>
+} 

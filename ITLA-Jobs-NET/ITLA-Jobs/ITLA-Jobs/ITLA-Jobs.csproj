@@ -171,6 +171,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CategoriasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\VacantesController.cs" />
@@ -387,6 +388,7 @@
     <Content Include="Views\Vacantes\Edit.cshtml" />
     <Content Include="Views\Vacantes\Index.cshtml" />
     <Content Include="Views\Vacantes\MisVacantes.cshtml" />
+    <Content Include="Views\Categorias\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
