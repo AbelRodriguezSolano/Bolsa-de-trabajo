@@ -37,8 +37,8 @@ namespace API
                 options.AddPolicy("Allowed", builder =>
                 {
                     //builder.WithOrigins("https://localhost:44322");
-                    builder.SetIsOriginAllowed(origin => new Uri(origin).Host == "localhost").AllowAnyHeader().AllowAnyMethod();
-                    //builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+                    builder.SetIsOriginAllowed(origin => new Uri(origin).Host == "localhost").AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+                    //builder.AllowAnyHeader().AllowAnyMethod();
                 });
             });
         }
@@ -54,8 +54,8 @@ namespace API
             }
 
             app.UseHttpsRedirection();
-            app.UseCors("Allowed");
             app.UseRouting();
+            app.UseCors("Allowed");
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
