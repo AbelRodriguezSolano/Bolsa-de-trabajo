@@ -1,9 +1,6 @@
 ﻿@model ITLA_Jobs.Models.Vacante
 @using Microsoft.AspNet.Identity;
 @using ITLA_Jobs.Models
-
-
-
 @{
     ViewBag.Title = "Editar";
 
@@ -14,15 +11,11 @@
     ViewBag.categoria = lista;
 
 }
-
-
-
-
 <div class="row justify-content-center mt-5">
     <div class="col-12 col-md-8 text-center">
 
         @{
-            if (Model.EmailUsuario == User.Identity.GetUserName())
+            if (Model.EmailUsuario == User.Identity.GetUserName() || User.Identity.GetUserName().ToLower() == "admin@gmail.com")
             {
                 using (Html.BeginForm("Edit", "Vacantes", FormMethod.Post, new { enctype = "multipart/form-data" }))
                 {
@@ -123,7 +116,7 @@
             }
             else
             {
-                <h1>Usted no puede editar esta vacante</h1>
+                <h1 class="text-danger">Usted no puede editar esta vacante</h1>
             }
         }
     </div>

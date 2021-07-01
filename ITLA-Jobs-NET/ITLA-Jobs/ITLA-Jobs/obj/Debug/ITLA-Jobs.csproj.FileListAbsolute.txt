@@ -160,8 +160,8 @@ C:\Users\abel_\Desktop\Bolsa-de-trabajo\ITLA-Jobs-NET\ITLA-Jobs\ITLA-Jobs\bin\Mi
 C:\Users\abel_\Desktop\Bolsa-de-trabajo\ITLA-Jobs-NET\ITLA-Jobs\ITLA-Jobs\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\abel_\Desktop\Bolsa-de-trabajo\ITLA-Jobs-NET\ITLA-Jobs\ITLA-Jobs\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\abel_\Desktop\Bolsa-de-trabajo\ITLA-Jobs-NET\ITLA-Jobs\ITLA-Jobs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\abel_\Desktop\Bolsa-de-trabajo\ITLA-Jobs-NET\ITLA-Jobs\ITLA-Jobs\obj\Debug\ITLA-Jobs.csproj.AssemblyReference.cache
 C:\Users\abel_\Desktop\Bolsa-de-trabajo\ITLA-Jobs-NET\ITLA-Jobs\ITLA-Jobs\obj\Debug\ITLA-Jobs.csproj.CoreCompileInputs.cache
 C:\Users\abel_\Desktop\Bolsa-de-trabajo\ITLA-Jobs-NET\ITLA-Jobs\ITLA-Jobs\obj\Debug\ITLA-Jobs.csproj.CopyComplete
 C:\Users\abel_\Desktop\Bolsa-de-trabajo\ITLA-Jobs-NET\ITLA-Jobs\ITLA-Jobs\obj\Debug\ITLA-Jobs.dll
 C:\Users\abel_\Desktop\Bolsa-de-trabajo\ITLA-Jobs-NET\ITLA-Jobs\ITLA-Jobs\obj\Debug\ITLA-Jobs.pdb
-C:\Users\abel_\Desktop\Bolsa-de-trabajo\ITLA-Jobs-NET\ITLA-Jobs\ITLA-Jobs\obj\Debug\ITLA-Jobs.csproj.AssemblyReference.cache

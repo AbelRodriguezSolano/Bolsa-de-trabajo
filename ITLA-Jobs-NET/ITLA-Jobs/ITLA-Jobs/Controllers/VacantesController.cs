@@ -181,7 +181,14 @@ namespace ITLA_Jobs.Controllers
         [Authorize]
         public ActionResult MisVacantes()
         {
-            return View(from datos in db.Vacante.ToList() where datos.EmailUsuario == User.Identity.GetUserName().ToLower() select datos); 
+            if (User.Identity.GetUserName().ToLower() == "admin@gmail.com")
+            {
+                return View(db.Vacante.ToList());
+            }
+            else
+            {
+                return View(from datos in db.Vacante.ToList() where datos.EmailUsuario == User.Identity.GetUserName().ToLower() select datos); 
+            }
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace ITLA_Jobs.Controllers
 {
+    [Authorize(Users = "admin@gmail.com")]
     public class CategoriasController : Controller
     {
         // GET: Categorias

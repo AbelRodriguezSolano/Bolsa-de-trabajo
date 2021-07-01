@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BolsaTrabajoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Categoria">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vacante">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tipo" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Company" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Direccion_url" Type="varchar(max)" />
+    <Property Name="Logo" Type="varchar(max)" />
+    <Property Name="Posicion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Ubicacion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar(max)" Nullable="false" />
+    <Property Name="FechaRegistro" Type="date" Nullable="false" />
+    <Property Name="CorreoAplicar" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Categoria" Type="int" Nullable="false" />
+    <Property Name="EmailUsuario" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Vacante__Categor__29572725">
+    <End Role="Categoria" Type="Self.Categoria" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Vacante" Type="Self.Vacante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vacante">
+        <PropertyRef Name="Categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BolsaTrabajoModelStoreContainer">
+    <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vacante" EntityType="Self.Vacante" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Vacante__Categor__29572725" Association="Self.FK__Vacante__Categor__29572725">
+      <End Role="Categoria" EntitySet="Categoria" />
+      <End Role="Vacante" EntitySet="Vacante" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
