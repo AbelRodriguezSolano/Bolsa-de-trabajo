@@ -16,7 +16,7 @@ namespace ITLA_Jobs.Controllers
 {
     public class VacantesController : Controller
     {
-        private BolsaTrabajoEntities db = new BolsaTrabajoEntities();
+        readonly BolsaTrabajoEntities db = new BolsaTrabajoEntities();
 
         // GET: Vacantes
         public ActionResult Index()
