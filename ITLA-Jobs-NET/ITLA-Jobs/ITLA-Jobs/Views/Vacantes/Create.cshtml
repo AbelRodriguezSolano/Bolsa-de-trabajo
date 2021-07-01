@@ -79,7 +79,7 @@
             </div>
             <div class="form-group">
                 <div class="col text-left">
-                    <textarea name="Descripcion" id="Descripcion" cols="30" rows="10" placeholder="Descripción o Requisitos de la posición" class="form-control textarea"></textarea>
+                    @Html.TextAreaFor(model => model.Descripcion, new { @class = "form-control textarea", placeholder = "Descripción o Requisitos de la posición" } )
                     @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
                 </div>
             </div>
