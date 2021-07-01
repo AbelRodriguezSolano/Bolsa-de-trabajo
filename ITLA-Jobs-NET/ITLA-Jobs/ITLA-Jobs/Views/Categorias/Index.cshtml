@@ -23,8 +23,8 @@
         </thead>
         <tbody>
             <tr class="d-none">
-                <td>Hola</td>
-                <td>Hola</td>
+                <td></td>
+                <td></td>
             </tr>
         </tbody>
     </table>
@@ -39,7 +39,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">
-                    Agregar Categoria
+                    
                 </h5>
                 <button type="button"
                         class="close"
@@ -49,7 +49,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="alert alert-danger text-center d-none">Hola Mundo</div>
+                <div class="alert alert-danger text-center d-none"></div>
                 <input type="text"
                        class="form-control"
                        placeholder="Nombre de la categoria"
@@ -59,7 +59,7 @@
                 <button type="button"
                         class="btn btn-secondary"
                         data-dismiss="modal">
-                    Close
+                    Cerrar
                 </button>
                 <button type="button" class="btn btn-primary" id="btnSave">
                     Guardar
@@ -78,6 +78,7 @@
 
 @section scripts{
     <script>
+
         const url = "https://localhost:44322/api/Categoria";
         const input = document.getElementById("inputcategoria");
         const alert = document.querySelector(".alert");
@@ -85,8 +86,11 @@
         const btnDelete = document.getElementById("btnDelete");
         const btnEdit = document.getElementById("btnEdit");
         const btnAdd = document.getElementById("btnAdd");
+        const title = document.querySelector(".modal-title");
 
         btnAdd.addEventListener("click", () => {
+            title.textContent = "Agregar Categoria";
+            input.value = "";
             btnSave.classList.remove("d-none");
             btnEdit.classList.add("d-none");
             btnDelete.classList.add("d-none");
@@ -144,6 +148,7 @@
         });
 
         $(".table tbody").on("click", "tr", function () {
+            title.textContent = "Categoria";
             $("#modal-categorias").modal("show");
             btnSave.classList.add("d-none");
             btnEdit.classList.remove("d-none");
@@ -163,19 +168,19 @@
                     alert.classList.add("d-none");
                     $("#modal-categorias").modal("hide");
                     Swal.fire({
-                        title: "Do you want to save the changes?",
+                        title: "Quieres guardar los cambios?",
                         showDenyButton: true,
                         showCancelButton: true,
-                        confirmButtonText: `Save`,
-                        denyButtonText: `Don't save`,
+                        confirmButtonText: `Guardar`,
+                        denyButtonText: `No guardar`,
                     }).then((result) => {
                         /* Read more about isConfirmed, isDenied below */
                         if (result.isConfirmed) {
-                            Swal.fire("Saved!", "", "success");
-                            console.log(data);
+                            Swal.fire("Cambios guardados!", "", "success");
+                            data.nombre = input.value;
                             PUT(data);
                         } else if (result.isDenied) {
-                            Swal.fire("Changes are not saved", "", "info");
+                            Swal.fire("Los cambios no han sido guardados", "", "info");
                         }
                     });
                 }
@@ -185,16 +190,16 @@
                 $("#modal-categorias").modal("hide");
 
                 Swal.fire({
-                    title: "Are you sure?",
-                    text: "You won't be able to revert this!",
+                    title: "Estas seguro?",
+                    text: "No podrás revertir esto!",
                     icon: "warning",
                     showCancelButton: true,
                     confirmButtonColor: "#3085d6",
                     cancelButtonColor: "#d33",
-                    confirmButtonText: "Yes, delete it!",
+                    confirmButtonText: "Si, bórralo!",
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+                        Swal.fire("Borrado!", "Tu archivo ha sido eliminado.", "success");
                         Delete(data);
                     }
                 });
@@ -210,7 +215,10 @@
                 },
             })
                 .then((res) => res.json())
-                .then((res) => console.log(res));
+                .then(() => {
+                    setTimeout(RowRemove, 100);
+                    input.value = "";
+                });
         };
 
         const PUT = (data) => {
@@ -218,13 +226,15 @@
                 method: "PUT",
                 body: JSON.stringify(data),
                 headers: {
-                    "content-type": "application/json",
-                },
+                    "content-type": "application/json"
+                }
             })
                 .then((res) => res.json())
                 .then(() => {
                     setTimeout(RowRemove, 100);
+                    input.value = "";
                 });
         };
+
     </script>
 } 
