@@ -1,0 +1,4 @@
+/Bolsa-de-trabajo-backend/
+/Documentacion fase beta/
+/iconos/
+/UnitTestControllers/
