@@ -1,0 +1,61 @@
+{
+	"id": "f0c02eab-281f-4c05-b4fd-f3d2c89f1195",
+	"name": "Testing",
+	"timestamp": "2021-07-02T05:08:31.975Z",
+	"collection_id": "984f0845-17f1-4edd-9504-22bf6d723784",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 3,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "246fc0e1-1a37-4d15-bf04-4dd4fbe15cbc",
+			"name": "Delete_TestingResult",
+			"url": "https://localhost:44322/api/Categoria",
+			"time": 253,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Retorno Ok": true,
+				"Duraccion de la peticion 600ms": true,
+				"Content-Type esta presente": true
+			},
+			"testPassFailCounts": {
+				"Retorno Ok": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Duraccion de la peticion 600ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type esta presente": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				253
+			],
+			"allTests": [
+				{
+					"Retorno Ok": true,
+					"Duraccion de la peticion 600ms": true,
+					"Content-Type esta presente": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 253,
+	"collection": {
+		"requests": [
+			{
+				"id": "246fc0e1-1a37-4d15-bf04-4dd4fbe15cbc",
+				"method": "DELETE"
+			}
+		]
+	}
+}

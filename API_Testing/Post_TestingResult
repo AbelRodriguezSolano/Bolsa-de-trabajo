@@ -1,0 +1,61 @@
+{
+	"id": "65e44fb5-445c-4bc6-a06e-d7be5a9f101f",
+	"name": "Testing",
+	"timestamp": "2021-07-02T04:39:03.712Z",
+	"collection_id": "984f0845-17f1-4edd-9504-22bf6d723784",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 3,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "6d7477de-fac6-44d5-86d3-a16879427b30",
+			"name": "Testing_PostResult",
+			"url": "https://localhost:44322/api/Categoria",
+			"time": 365,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Retorno Ok": true,
+				"Duracion de la peticion menor a 600ms": true,
+				"Insercion de datos": true
+			},
+			"testPassFailCounts": {
+				"Retorno Ok": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Duracion de la peticion menor a 600ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Insercion de datos": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				365
+			],
+			"allTests": [
+				{
+					"Retorno Ok": true,
+					"Duracion de la peticion menor a 600ms": true,
+					"Insercion de datos": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 365,
+	"collection": {
+		"requests": [
+			{
+				"id": "6d7477de-fac6-44d5-86d3-a16879427b30",
+				"method": "POST"
+			}
+		]
+	}
+}
