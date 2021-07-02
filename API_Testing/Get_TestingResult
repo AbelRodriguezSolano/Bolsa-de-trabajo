@@ -1,0 +1,73 @@
+{
+	"id": "2db450d4-ca55-4523-8295-914674353458",
+	"name": "Testing",
+	"timestamp": "2021-07-02T03:38:04.723Z",
+	"collection_id": "984f0845-17f1-4edd-9504-22bf6d723784",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 5,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "b9418ff1-5b72-4afb-a0e1-58e4f7859a52",
+			"name": "GetTesting",
+			"url": "https://localhost:44322/api/Categoria",
+			"time": 117,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Retorno OK": true,
+				"Tiempo de respuesta menor a 500ms": true,
+				"Existe contenido en el body": true,
+				"Esta retornado un Json": true,
+				"El atributo de retorno es nombre ": true
+			},
+			"testPassFailCounts": {
+				"Retorno OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Tiempo de respuesta menor a 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Existe contenido en el body": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Esta retornado un Json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"El atributo de retorno es nombre ": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				117
+			],
+			"allTests": [
+				{
+					"Retorno OK": true,
+					"Tiempo de respuesta menor a 500ms": true,
+					"Existe contenido en el body": true,
+					"Esta retornado un Json": true,
+					"El atributo de retorno es nombre ": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 117,
+	"collection": {
+		"requests": [
+			{
+				"id": "b9418ff1-5b72-4afb-a0e1-58e4f7859a52",
+				"method": "GET"
+			}
+		]
+	}
+}
