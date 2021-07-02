@@ -1,0 +1,67 @@
+{
+	"id": "a6361ea9-86cc-4655-8879-de3d1ade904b",
+	"name": "Testing",
+	"timestamp": "2021-07-02T05:04:57.484Z",
+	"collection_id": "984f0845-17f1-4edd-9504-22bf6d723784",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 4,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "aebeeb1e-2414-4a8b-a0a2-5fef5772498e",
+			"name": "Put_TestingResult",
+			"url": "https://localhost:44322/api/Categoria",
+			"time": 145,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Retorno Ok": true,
+				"Duraccion de la peticion menor a 700ms": true,
+				"Esta retornado un Json": true,
+				"Modificacion exitosa": true
+			},
+			"testPassFailCounts": {
+				"Retorno Ok": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Duraccion de la peticion menor a 700ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Esta retornado un Json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Modificacion exitosa": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				145
+			],
+			"allTests": [
+				{
+					"Retorno Ok": true,
+					"Duraccion de la peticion menor a 700ms": true,
+					"Esta retornado un Json": true,
+					"Modificacion exitosa": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 145,
+	"collection": {
+		"requests": [
+			{
+				"id": "aebeeb1e-2414-4a8b-a0a2-5fef5772498e",
+				"method": "PUT"
+			}
+		]
+	}
+}
