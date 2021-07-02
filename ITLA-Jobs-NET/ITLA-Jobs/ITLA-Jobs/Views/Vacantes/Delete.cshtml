@@ -1,0 +1,49 @@
+﻿@model ITLA_Jobs.Models.Vacante
+@using Microsoft.AspNet.Identity;
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+@{
+    if (User.Identity.GetUserName().ToLower() == "admin@gmail.com" || Model.EmailUsuario == User.Identity.GetUserName())
+    {
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-8">
+                <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                    <div class="card-body d-flex flex-column align-items-start">
+                        <strong class="d-inline-block mb-2 text-success">@Html.DisplayFor(model => model.Company)</strong>
+                        <h3 class="mb-0">
+                            @Html.DisplayFor(model => model.Ubicacion)
+                        </h3>
+                        <div class="mb-1 text-muted">@Html.DisplayFor(model => model.Posicion)</div>
+                        <p class="card-text">
+                            @Html.DisplayFor(model => model.Tipo)
+                        </p>
+                        <p class="card-text mb-1">@Html.DisplayFor(model => model.Descripcion)</p>
+                        <p class="card-text mb-auto">Para aplicar enviar su curriculum vitae a @Html.DisplayFor(model => model.CorreoAplicar)</p>
+                    </div>
+                    <img class="card-img-right flex-auto d-none d-md-block" src="~/Logos/@Html.DisplayFor(model => model.Logo)" alt="logo" width="250" height="250">
+                </div>
+            </div>
+        </div>
+        using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <div class="row justify-content-center">
+                <div class="col-md-8 mb-3">
+                    <input type="submit" value="Eliminar" class="btn btn-outline-danger btn-lg btn-block" />
+                </div>
+                <div class="col-md-8">
+                    <a href="/Vacantes/MisVacantes" class="btn btn-outline-primary btn-block btn-lg">Vacantes</a>
+                </div>
+            </div>           
+        </div>
+        }
+    }
+    else
+    {
+        <h1 class="text-danger mt-3 text-center">No puedes borrar esta vacante</h1>
+    }
+}

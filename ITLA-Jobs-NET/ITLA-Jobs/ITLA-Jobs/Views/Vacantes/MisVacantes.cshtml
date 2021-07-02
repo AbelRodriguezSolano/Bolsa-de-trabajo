@@ -1,0 +1,75 @@
+﻿@model IEnumerable<ITLA_Jobs.Models.Vacante>
+@{
+    ViewBag.Title = "Mis Vacantes";
+}
+
+<h2 class="text-info my-3">Mis Vacantes</h2>
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Company)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Direccion_url)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Posicion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ubicacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tipo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CorreoAplicar)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Company)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Direccion_url)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Posicion)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Ubicacion)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Tipo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Descripcion)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CorreoAplicar)
+    </td>
+
+    
+
+    <td class="d-flex">
+        <a href="@Url.Action("Edit", "Vacantes")/@item.Id" class="btn btn-success ml-1">
+            <i class="fa fa-pencil"></i>
+        </a>
+        <a href="@Url.Action("Details", "Vacantes")/@item.Id" class="btn btn-info ml-1">
+            <i class="fa fa-address-card"></i>
+        </a>        
+        <a href="@Url.Action("Delete", "Vacantes")/@item.Id" class="btn btn-danger ml-1">
+            <i class="fa fa-trash"></i>
+        </a>
+    </td>
+</tr>
+    }
+
+</table>
