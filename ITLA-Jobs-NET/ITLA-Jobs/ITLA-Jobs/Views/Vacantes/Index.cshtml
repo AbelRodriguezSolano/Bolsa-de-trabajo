@@ -3,6 +3,16 @@
 
 @{
     ViewBag.Title = "Vacantes";
+
+    #region Logica DropDownList
+
+    BolsaTrabajoEntities db = new BolsaTrabajoEntities();
+    var categorias = db.Categoria.ToList();
+
+    SelectList lista = new SelectList(categorias, "Id", "Nombre");
+    ViewBag.categoria = lista;
+
+    #endregion
 }
 
 <div class="row mt-5 mb-5">
@@ -10,6 +20,20 @@
         <a href="/Vacantes/Create" class="btn btn-outline-success">Publicar Vacante</a>
     </div>
 </div>
+
+@{
+    using (Html.BeginForm("Index", "Vacantes", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.DropDownList("categoriaFiltrada", ViewBag.categoria as SelectList, "Seleccione categoria", new { @class = "form-control text-center font-weight-bold" })
+
+        <input type="submit" value="Filtrar" class="btn btn-outline-primary form-control" />
+    }
+}
+
+<br />
+<br />
+
 <table class="table table-bordered table-hover">
     <caption class="bg-dark text-white text-center text-uppercase">
         Vacantes

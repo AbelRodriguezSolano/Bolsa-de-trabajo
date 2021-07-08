@@ -165,3 +165,4 @@ C:\Users\abel_\Desktop\Bolsa-de-trabajo\ITLA-Jobs-NET\ITLA-Jobs\ITLA-Jobs\obj\De
 C:\Users\abel_\Desktop\Bolsa-de-trabajo\ITLA-Jobs-NET\ITLA-Jobs\ITLA-Jobs\obj\Debug\ITLA-Jobs.csproj.CopyComplete
 C:\Users\abel_\Desktop\Bolsa-de-trabajo\ITLA-Jobs-NET\ITLA-Jobs\ITLA-Jobs\obj\Debug\ITLA-Jobs.dll
 C:\Users\abel_\Desktop\Bolsa-de-trabajo\ITLA-Jobs-NET\ITLA-Jobs\ITLA-Jobs\obj\Debug\ITLA-Jobs.pdb
+C:\Users\leuri\Documents\Itla Documents\Cuatrimestre 3\Programacion III\Proyecto web\Bolsa-de-trabajo\ITLA-Jobs-NET\ITLA-Jobs\ITLA-Jobs\bin\EntityFramework.xml
