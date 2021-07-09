@@ -24,6 +24,14 @@ namespace ITLA_Jobs.Controllers
             return View(db.Vacante.ToList());
         }
 
+        [HttpPost]
+        public ActionResult Index(FormCollection categoria)
+        {
+            TempData["categoria"] = categoria["categoriaFiltrada"];
+            int data = Convert.ToInt32(categoria["categoriaFiltrada"]);
+            return View(from datos in db.Vacante.ToList() where datos.Categoria == data select datos);
+        }
+
         // GET: Vacantes/Details/5
         public ActionResult Details(int? id)
         {
