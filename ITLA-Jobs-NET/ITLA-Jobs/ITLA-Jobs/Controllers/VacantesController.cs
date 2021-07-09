@@ -27,9 +27,19 @@ namespace ITLA_Jobs.Controllers
         [HttpPost]
         public ActionResult Index(FormCollection categoria)
         {
-            TempData["categoria"] = categoria["categoriaFiltrada"];
-            int data = Convert.ToInt32(categoria["categoriaFiltrada"]);
-            return View(from datos in db.Vacante.ToList() where datos.Categoria == data select datos);
+ 
+            try
+            {
+                TempData["categoria"] = categoria["categoriaFiltrada"];
+                int data = Convert.ToInt32(categoria["categoriaFiltrada"]);
+                return View(from datos in db.Vacante.ToList() where datos.Categoria == data select datos);
+            }
+            catch (Exception)
+            {
+                return View(db.Vacante.ToList());
+
+            }
+         
         }
 
         // GET: Vacantes/Details/5

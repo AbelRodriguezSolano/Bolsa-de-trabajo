@@ -25,9 +25,17 @@
     using (Html.BeginForm("Index", "Vacantes", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
-        @Html.DropDownList("categoriaFiltrada", ViewBag.categoria as SelectList, "Seleccione categoria", new { @class = "form-control text-center font-weight-bold" })
+        <div class="row">
 
-        <input type="submit" value="Filtrar" class="btn btn-outline-primary form-control" />
+            <div class="col-12 col-md-6 mb-3">
+                @Html.DropDownList("categoriaFiltrada", ViewBag.categoria as SelectList, "Seleccione categoria", new { @class = "form-control text-center font-weight-bold" })
+            </div>
+            <div class="col-12 col-md-6">
+                <input type="submit" value="Filtrar" class="btn btn-outline-primary form-control" />
+            </div>
+
+        </div>
+
     }
 }
 
